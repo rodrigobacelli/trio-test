@@ -25,3 +25,17 @@ a {
     color: white;
     margin-left: 30px;
 }
+
+@media (max-width: 767px) {
+    .header-container {
+        flex-direction: column;
+    }
+
+    .app-name {
+        margin-bottom: 24px;
+    }
+
+    .sign-up-action {
+        margin-left: 10px;
+    }
+}
