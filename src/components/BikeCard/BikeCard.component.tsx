@@ -1,14 +1,7 @@
+import Bike from 'models/Bike'
 import './BikeCard.styles.css'
 
-interface BikeCardProps {
-  name: string
-  imgSrc: string
-  type: string
-  description: string
-  priceByDay: number
-  city: string
-  bodySize: number
-}
+type BikeCardProps = Omit<Bike, 'id'>
 
 const BikeCard = ({
   name,

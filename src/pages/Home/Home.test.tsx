@@ -10,4 +10,9 @@ describe('Home page', () => {
     const headerElement = screen.getByTestId('header')
     expect(headerElement).toBeInTheDocument()
   })
+
+  it('should has a bikes list', () => {
+    const listElement = screen.getByTestId('bikes-list')
+    expect(listElement).toBeInTheDocument()
+  })
 })
