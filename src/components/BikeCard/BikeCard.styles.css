@@ -1,0 +1,10 @@
+.card-container {
+    max-width: 400px;
+    border: 1px solid black;
+    border-radius: 30px;
+}
+
+.bike-image {
+    width: 400px;
+    height: 200px;
+}

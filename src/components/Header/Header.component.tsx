@@ -2,7 +2,7 @@ import './Header.styles.css'
 
 const Headers = () => {
   return (
-    <header className='container' data-testid='header'>
+    <header className='header-container' data-testid='header'>
       <h1 className='app-name'>BikeRent</h1>
 
       <div className='actions'>
