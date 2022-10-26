@@ -22,6 +22,7 @@ const BikeList = ({ bikes }: BikeListProps) => {
         {bikes.map((bike) => (
           <BikeCard
             key={bike.id}
+            id={bike.id}
             name={bike.name}
             imgSrc={bike.imgSrc}
             type={bike.type}

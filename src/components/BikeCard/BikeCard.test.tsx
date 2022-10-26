@@ -1,19 +1,19 @@
 import { render, screen } from '@testing-library/react'
+import { mockedBike } from 'mocks/Bike'
 import BikeCard from '.'
 
 describe('BikeCard component', () => {
   beforeEach(() => {
     render(
       <BikeCard
-        name={'Murazik, Thiel and Robel'}
-        imgSrc={'https://cremecycles.com/images/glowne/13.jpg'}
-        type={'Cyclocross Bicycle'}
-        description={
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-        }
-        priceByDay={25}
-        city={'Manhattan'}
-        bodySize={24}
+        name={mockedBike.name}
+        imgSrc={mockedBike.imgSrc}
+        type={mockedBike.type}
+        description={mockedBike.description}
+        priceByDay={mockedBike.priceByDay}
+        city={mockedBike.city}
+        bodySize={mockedBike.bodySize}
+        id={mockedBike.id}
       />,
     )
   })
