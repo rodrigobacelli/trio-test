@@ -1,11 +1,20 @@
 import { useNavigate } from 'react-router-dom'
 import { Paths } from 'routes/paths'
-import { getUrlWithParams } from 'routes/utils'
-import Bike from 'models/Bike'
+import { getUrlWithParams } from 'utils/navigation'
 import BikeCard from './BikeCard.component'
-import './BikeCard.styles.css'
 
-const BikeCardContainer = ({ id, ...rest }: Bike) => {
+export interface BikeCardProps {
+  id: number
+  name: string
+  description: string
+  type: string
+  bodySize: number
+  city?: string
+  priceByDay?: number
+  cardImage?: string
+}
+
+const BikeCardContainer = ({ id, ...rest }: BikeCardProps) => {
   const navigate = useNavigate()
 
   const handleOpenBikeDetails = () => {
@@ -13,7 +22,7 @@ const BikeCardContainer = ({ id, ...rest }: Bike) => {
     navigate(urlWithBikeId)
   }
 
-  return <BikeCard handleOpenBikeDetails={handleOpenBikeDetails} {...rest} />
+  return <BikeCard id={id} handleOpenBikeDetails={handleOpenBikeDetails} {...rest} />
 }
 
 export default BikeCardContainer

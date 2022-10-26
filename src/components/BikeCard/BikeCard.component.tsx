@@ -1,22 +1,22 @@
-import Bike from 'models/Bike'
+import { BikeCardProps } from './BikeCard.container'
 import './BikeCard.styles.css'
 
-type BikeCardProps = Omit<Bike, 'id'> & { handleOpenBikeDetails: () => void }
+type BikeCardComponentProps = BikeCardProps & { handleOpenBikeDetails: () => void }
 
 const BikeCard = ({
   name,
-  imgSrc,
+  cardImage,
   city,
   description,
   type,
   bodySize,
   priceByDay,
   handleOpenBikeDetails,
-}: BikeCardProps) => {
+}: BikeCardComponentProps) => {
   return (
     <div onClick={handleOpenBikeDetails} className='card-container' data-testid='bike-card'>
       <div>
-        <img src={imgSrc} alt='Bike Image' className='bike-image' data-testid='bike-image' />
+        <img src={cardImage} alt='Bike Image' className='bike-image' data-testid='bike-image' />
       </div>
 
       <div className='card-infos-container'>
@@ -38,7 +38,7 @@ const BikeCard = ({
 
           <div className='card-prices-container'>
             <strong data-testid='bike-price-day'>{priceByDay} €/Day</strong>
-            <p data-testid='bike-price-week'>{priceByDay * 7} €/Week</p>
+            <p data-testid='bike-price-week'>{(priceByDay || 0) * 7} €/Week</p>
           </div>
         </div>
       </div>

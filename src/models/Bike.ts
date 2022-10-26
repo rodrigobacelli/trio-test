@@ -1,10 +1,15 @@
 export default interface Bike {
   id: number
+  candidateId: number
   name: string
-  imgSrc: string
   type: string
-  description: string
-  priceByDay: number
-  city: string
   bodySize: number
+  maxLoad: number
+  rate: number
+  description: string
+  ratings: number
+  imageUrls: string[]
+  cardImage?: string
+  priceByDay?: number
+  city?: string
 }

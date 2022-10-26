@@ -7,7 +7,7 @@ describe('BikeCard component', () => {
     render(
       <BikeCard
         name={mockedBike.name}
-        imgSrc={mockedBike.imgSrc}
+        cardImage={mockedBike.cardImage}
         type={mockedBike.type}
         description={mockedBike.description}
         priceByDay={mockedBike.priceByDay}

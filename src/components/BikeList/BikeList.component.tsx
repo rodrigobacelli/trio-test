@@ -24,7 +24,7 @@ const BikeList = ({ bikes }: BikeListProps) => {
             key={bike.id}
             id={bike.id}
             name={bike.name}
-            imgSrc={bike.imgSrc}
+            cardImage={bike.imageUrls[0]}
             type={bike.type}
             description={bike.description}
             priceByDay={bike.priceByDay}
