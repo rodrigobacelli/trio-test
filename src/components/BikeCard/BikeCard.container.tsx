@@ -1,20 +1,16 @@
+import { useNavigate } from 'react-router-dom'
+import { Paths } from 'routes/paths'
+import { getUrlWithParams } from 'routes/utils'
 import Bike from 'models/Bike'
-// import { useNavigate } from 'react-router-dom'
 import BikeCard from './BikeCard.component'
 import './BikeCard.styles.css'
 
 const BikeCardContainer = ({ id, ...rest }: Bike) => {
-  //   const navigate = useNavigate()
+  const navigate = useNavigate()
 
   const handleOpenBikeDetails = () => {
-    // navigate(`bike-details/${id}`)
-    if (window.location.href.includes('bike-details')) {
-      const baseUrl = window.location.href.split('bike-details')[0]
-      window.location.href = baseUrl + `bike-details/${id}`
-      return
-    }
-
-    window.location.href = window.location.href + `bike-details/${id}`
+    const urlWithBikeId = getUrlWithParams(Paths.BIKE_DETAILS, { bikeId: id })
+    navigate(urlWithBikeId)
   }
 
   return <BikeCard handleOpenBikeDetails={handleOpenBikeDetails} {...rest} />
