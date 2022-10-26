@@ -19,7 +19,7 @@ const BikeCardContainer = ({ id, ...rest }: BikeCardProps) => {
 
   const handleOpenBikeDetails = () => {
     const urlWithBikeId = getUrlWithParams(Paths.BIKE_DETAILS, { bikeId: id })
-    navigate(urlWithBikeId)
+    navigate(urlWithBikeId, { state: { bike: { id, ...rest } } })
   }
 
   return <BikeCard id={id} handleOpenBikeDetails={handleOpenBikeDetails} {...rest} />

@@ -1,9 +1,10 @@
 import { render, screen } from '@testing-library/react'
-import Home from '.'
+import { mockedBikesArray } from 'mocks/Bike'
+import Home from './Home.component'
 
 describe('Home page', () => {
   beforeEach(() => {
-    render(<Home />)
+    render(<Home bikes={mockedBikesArray} />)
   })
 
   it('should has a header', () => {
