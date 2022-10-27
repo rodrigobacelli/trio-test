@@ -1,7 +1,12 @@
-import { BikeCardProps } from './BikeCard.container'
+import Bike from 'models/Bike'
 import './BikeCard.styles.css'
 
-type BikeCardComponentProps = BikeCardProps & { handleOpenBikeDetails: () => void }
+type JustDisplayedBikeData = Omit<Bike, 'candidateId' | 'maxLoad' | 'rate' | 'ratings'>
+
+interface BikeCardComponentProps extends JustDisplayedBikeData {
+  cardImage: string
+  handleOpenBikeDetails: () => void
+}
 
 const BikeCard = ({
   name,

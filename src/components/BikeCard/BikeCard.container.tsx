@@ -1,28 +1,33 @@
+import Bike from 'models/Bike'
 import { useNavigate } from 'react-router-dom'
 import { Paths } from 'routes/paths'
 import { getUrlWithParams } from 'utils/navigation'
 import BikeCard from './BikeCard.component'
 
-export interface BikeCardProps {
-  id: number
-  name: string
-  description: string
-  type: string
-  bodySize: number
-  city?: string
-  priceByDay?: number
-  cardImage?: string
+interface BikeCardProps {
+  bike: Bike
 }
 
-const BikeCardContainer = ({ id, ...rest }: BikeCardProps) => {
+const BikeCardContainer = ({ bike }: BikeCardProps) => {
   const navigate = useNavigate()
 
   const handleOpenBikeDetails = () => {
-    const urlWithBikeId = getUrlWithParams(Paths.BIKE_DETAILS, { bikeId: id })
-    navigate(urlWithBikeId, { state: { bike: { id, ...rest } } })
+    const urlWithBikeId = getUrlWithParams(Paths.BIKE_DETAILS, { bikeId: bike.id })
+    navigate(urlWithBikeId, { state: { bike } })
   }
 
-  return <BikeCard id={id} handleOpenBikeDetails={handleOpenBikeDetails} {...rest} />
+  return (
+    <BikeCard
+      id={bike.id}
+      handleOpenBikeDetails={handleOpenBikeDetails}
+      name={bike.name}
+      type={bike.type}
+      bodySize={bike.bodySize}
+      description={bike.description}
+      imageUrls={bike.imageUrls}
+      cardImage={bike.imageUrls[0] || ''}
+    />
+  )
 }
 
 export default BikeCardContainer

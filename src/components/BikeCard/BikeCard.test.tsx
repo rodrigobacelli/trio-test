@@ -4,18 +4,7 @@ import BikeCard from '.'
 
 describe('BikeCard component', () => {
   beforeEach(() => {
-    render(
-      <BikeCard
-        name={mockedBike.name}
-        cardImage={mockedBike.cardImage}
-        type={mockedBike.type}
-        description={mockedBike.description}
-        priceByDay={mockedBike.priceByDay}
-        city={mockedBike.city}
-        bodySize={mockedBike.bodySize}
-        id={mockedBike.id}
-      />,
-    )
+    render(<BikeCard bike={mockedBike} />)
   })
 
   it('should has an image', () => {

@@ -1,9 +1,115 @@
-.container {
+.bike-details-container {
     padding: 44px 100px;
 }
 
+.details-container {
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 24px;
+}
+
+
+.details-data-container {
+    padding: 34px;
+    border: 1px solid #EDEDED;
+    border-radius: 30px;
+}
+
+.bike-image-selector {
+    margin-bottom: 30px;
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 32px;
+}
+
+.chosen-image {
+    width: 100%;
+    height: 100%;
+}
+
+.image-selector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #EDEDED;
+    border-radius: 30px;
+    margin-bottom: 14px;
+    width: 100px;
+    height: 100px;
+    padding: 8px;
+}
+
+.spec-data-container {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #EDEDED;
+    border-radius: 20px;
+    padding: 15px 85px;
+    margin-bottom: 18px;
+}
+
+.bike-description {
+    border-top: 1px solid #EDEDED;
+    border-bottom: 1px solid #EDEDED;
+    padding: 20px 0;
+}
+
+.bike-details-name {
+    font-size: 34px;
+    font-weight: 800;
+}
+
+.bike-details-description {
+    margin-top: 12px;
+    font-size: 14px;
+}
+
+.bike-prices {
+    border-bottom: 1px solid #EDEDED;
+    padding: 20px 0;
+
+}
+
+.price-row {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.map-container {
+    margin-top: 26px;
+}
+
+.mapouter{
+    position:relative;
+    text-align:right;
+    width:100%;
+    height:400px;
+}
+
+.gmap_canvas {
+    overflow:hidden;
+    background:none!important;
+    width:100%;
+    border-radius: 20px;
+    height:400px;
+    margin-top: 20px;
+}
+
+.gmap_iframe {
+    height:400px!important;
+}
+
+.rent-overview {}
+
+
 @media (max-width: 767px) {
-    .container {
+    .bike-details-container {
         padding: 44px;
     }
 }
