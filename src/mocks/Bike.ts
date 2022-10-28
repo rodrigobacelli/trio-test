@@ -13,7 +13,6 @@ export const mockedBike: Bike = {
   type: 'Cyclocross Bicycle',
   description:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-  priceByDay: 25,
   bodySize: 24,
   city: 'Manhattan',
   cardImage: 'https://cremecycles.com/images/glowne/15.jpg',

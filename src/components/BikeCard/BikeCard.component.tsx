@@ -1,7 +1,8 @@
 import Bike from 'models/Bike'
+import { getRateByWeek } from 'utils/rates'
 import './BikeCard.styles.css'
 
-type JustDisplayedBikeData = Omit<Bike, 'candidateId' | 'maxLoad' | 'rate' | 'ratings'>
+type JustDisplayedBikeData = Omit<Bike, 'candidateId' | 'maxLoad' | 'ratings'>
 
 interface BikeCardComponentProps extends JustDisplayedBikeData {
   cardImage: string
@@ -15,7 +16,7 @@ const BikeCard = ({
   description,
   type,
   bodySize,
-  priceByDay,
+  rate,
   handleOpenBikeDetails,
 }: BikeCardComponentProps) => {
   return (
@@ -42,8 +43,8 @@ const BikeCard = ({
           </div>
 
           <div className='card-prices-container'>
-            <strong data-testid='bike-price-day'>{priceByDay} €/Day</strong>
-            <p data-testid='bike-price-week'>{(priceByDay || 0) * 7} €/Week</p>
+            <strong data-testid='bike-price-day'>{rate} €/Day</strong>
+            <p data-testid='bike-price-week'>{getRateByWeek(rate)} €/Week</p>
           </div>
         </div>
       </div>

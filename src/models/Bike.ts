@@ -10,6 +10,5 @@ export default interface Bike {
   ratings: number
   imageUrls: string[]
   cardImage?: string
-  priceByDay?: number
   city?: string
 }
