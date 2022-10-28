@@ -1,5 +1,6 @@
 import BikeImageSelector from 'components/BikeImageSelector'
 import BikeSpecs from 'components/BikeSpecs'
+import BikeType from 'components/BikeType'
 import BookingAddressMap from 'components/BookingAddressMap'
 import Header from 'components/Header'
 import Bike from 'models/Bike'
@@ -24,7 +25,9 @@ const BikeDetails = ({ bike }: BikeDetailsProps) => {
             <h1 className='bike-details-name' data-testid='bike-name-details'>
               {bike?.name}
             </h1>
-            <p>{bike?.type}</p>
+
+            <BikeType type={bike?.type} />
+
             <p className='bike-details-description'>{bike?.description}</p>
           </div>
 
