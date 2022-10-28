@@ -58,8 +58,18 @@
     margin-bottom: 14px;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1023px) {
     .bike-details-container {
-        padding: 44px;
+        padding: 44px 20px;
     }
+
+    .details-container {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .details-data-container {
+        padding: 24px;
+    }
+    
 }

@@ -1,0 +1,7 @@
+@media (max-width: 767px) {
+    .bike-images-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+    }
+}

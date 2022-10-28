@@ -8,3 +8,9 @@
     padding: 15px 85px;
     margin-bottom: 18px;
 }
+
+@media (max-width: 767px) {
+    .bike-specs-container {
+        padding: 15px 25px;
+    }
+}
