@@ -4,6 +4,7 @@ import BikeType from 'components/BikeType'
 import BookingAddressMap from 'components/BookingAddressMap'
 import Header from 'components/Header'
 import Bike from 'models/Bike'
+import { getServicesFee } from './BikeDetails.utils'
 import './BikeDetails.styles.css'
 
 interface BikeDetailsProps {
@@ -11,6 +12,10 @@ interface BikeDetailsProps {
 }
 
 const BikeDetails = ({ bike }: BikeDetailsProps) => {
+  const priceByDay = bike?.rate || 0
+  const servicesFee = getServicesFee(priceByDay)
+  const total = priceByDay + servicesFee
+
   return (
     <div className='bike-details-container' data-testid='bike-details-page'>
       <Header />
@@ -34,12 +39,12 @@ const BikeDetails = ({ bike }: BikeDetailsProps) => {
           <div className='bike-prices'>
             <div className='price-row'>
               <span>Day</span>
-              <strong>{bike?.priceByDay || 0} €</strong>
+              <strong>{priceByDay || 0} €</strong>
             </div>
 
             <div className='price-row'>
               <span>Week</span>
-              <strong>{(bike?.priceByDay || 0) * 7} €</strong>
+              <strong>{(priceByDay || 0) * 7} €</strong>
             </div>
           </div>
 
@@ -56,17 +61,17 @@ const BikeDetails = ({ bike }: BikeDetailsProps) => {
 
           <div className='price-row'>
             <span>Subtotal</span>
-            <span>{bike?.priceByDay || 0} €</span>
+            <span>{priceByDay} €</span>
           </div>
 
           <div className='price-row'>
             <span>Service Fee</span>
-            <span>{bike?.priceByDay || 0} €</span>
+            <span>{servicesFee} €</span>
           </div>
 
           <div className='price-row'>
             <h4>Total</h4>
-            <h2>{bike?.priceByDay || 0} €</h2>
+            <h2>{total} €</h2>
           </div>
         </section>
       </div>

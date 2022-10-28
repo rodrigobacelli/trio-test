@@ -26,6 +26,7 @@ const BikeCardContainer = ({ bike }: BikeCardProps) => {
       description={bike.description}
       imageUrls={bike.imageUrls}
       cardImage={bike.imageUrls[0] || ''}
+      priceByDay={bike.rate}
     />
   )
 }
