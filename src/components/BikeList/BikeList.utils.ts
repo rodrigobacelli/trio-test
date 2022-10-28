@@ -1,4 +1,4 @@
-export const getQuantityLabel = (quantity: number): string => {
-  const properBikePlural = quantity > 1 ? 'bikes' : 'bike'
-  return `${quantity} ${properBikePlural} to rent`
+export const getQuantityLabel = (bikeQuantity: number): string => {
+  const properBikePlural = bikeQuantity > 1 ? 'bikes' : 'bike'
+  return `${bikeQuantity} ${properBikePlural} to rent`
 }

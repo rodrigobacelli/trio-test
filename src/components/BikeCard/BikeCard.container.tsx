@@ -1,7 +1,6 @@
 import Bike from 'models/Bike'
 import { useNavigate } from 'react-router-dom'
 import { Paths } from 'routes/paths'
-import { getUrlWithParams } from 'utils/navigation'
 import BikeCard from './BikeCard.component'
 
 interface BikeCardProps {
@@ -12,8 +11,7 @@ const BikeCardContainer = ({ bike }: BikeCardProps) => {
   const navigate = useNavigate()
 
   const handleOpenBikeDetails = () => {
-    const urlWithBikeId = getUrlWithParams(Paths.BIKE_DETAILS, { bikeId: bike.id })
-    navigate(urlWithBikeId, { state: { bike } })
+    navigate(Paths.BIKE_DETAILS, { state: { bike } })
   }
 
   return (

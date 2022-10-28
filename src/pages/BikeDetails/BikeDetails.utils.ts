@@ -1,1 +1,3 @@
-export const getServicesFee = (amount: number): number => amount * 0.15
+import { SERVICE_FEE_PERCENTAGE } from './BikeDetails.contants'
+
+export const getServicesFee = (amount: number): number => amount * SERVICE_FEE_PERCENTAGE
