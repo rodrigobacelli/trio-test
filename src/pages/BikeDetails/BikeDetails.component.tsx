@@ -1,5 +1,6 @@
 import BikeImageSelector from 'components/BikeImageSelector'
 import BikeSpecs from 'components/BikeSpecs'
+import BookingAddressMap from 'components/BookingAddressMap'
 import Header from 'components/Header'
 import Bike from 'models/Bike'
 import './BikeDetails.styles.css'
@@ -41,20 +42,7 @@ const BikeDetails = ({ bike }: BikeDetailsProps) => {
 
           <div className='map-container'>
             <h1>Full adress after booking</h1>
-
-            <div className='mapouter'>
-              <div className='gmap_canvas'>
-                <iframe
-                  className='gmap_iframe'
-                  width='100%'
-                  frameBorder='0'
-                  scrolling='no'
-                  marginHeight={0}
-                  marginWidth={0}
-                  src='https://maps.google.com/maps?width=750&amp;height=400&amp;hl=en&amp;q=745 Atlantic Ave, Boston, MA 02111, Estados Unidos&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed'
-                ></iframe>
-              </div>
-            </div>
+            <BookingAddressMap />
           </div>
         </section>
 
