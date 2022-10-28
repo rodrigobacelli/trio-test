@@ -1,3 +1,4 @@
+import BikeImageSelector from 'components/BikeImageSelector'
 import Header from 'components/Header'
 import Bike from 'models/Bike'
 import './BikeDetails.styles.css'
@@ -7,25 +8,13 @@ interface BikeDetailsProps {
 }
 
 const BikeDetails = ({ bike }: BikeDetailsProps) => {
-  const cardImage = bike?.imageUrls[0] || ''
-
   return (
     <main className='bike-details-container' data-testid='bike-details-page'>
       <Header />
 
       <div className='details-container'>
         <section className='details-data-container'>
-          <div className='bike-image-selector'>
-            <div>
-              {bike?.imageUrls?.map((imageUrl) => (
-                <div key={imageUrl} className='image-selector'>
-                  <img src={imageUrl} width='100%' />
-                </div>
-              ))}
-            </div>
-
-            <img key={cardImage} src={cardImage} className='chosen-image' />
-          </div>
+          {!!bike?.imageUrls && <BikeImageSelector imageUrls={bike.imageUrls} />}
 
           <div className='spec-data-container'>
             <div>

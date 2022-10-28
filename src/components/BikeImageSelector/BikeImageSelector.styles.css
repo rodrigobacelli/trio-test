@@ -1,0 +1,11 @@
+.bike-image-selector-container {
+    margin-bottom: 30px;
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 32px;
+}
+
+.selected-image {
+    width: 100%;
+    height: 100%;
+}

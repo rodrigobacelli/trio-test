@@ -1,5 +1,11 @@
 import Bike from 'models/Bike'
 
+export const mockedImageUrls = [
+  'https://cremecycles.com/images/glowne/15.jpg',
+  'https://cremecycles.com/images/glowne/13.jpg',
+  'https://cremecycles.com/images/glowne/15.jpg',
+]
+
 export const mockedBike: Bike = {
   id: 1,
   candidateId: 5,
@@ -11,11 +17,7 @@ export const mockedBike: Bike = {
   bodySize: 24,
   city: 'Manhattan',
   cardImage: 'https://cremecycles.com/images/glowne/15.jpg',
-  imageUrls: [
-    'https://cremecycles.com/images/glowne/15.jpg',
-    'https://cremecycles.com/images/glowne/13.jpg',
-    'https://cremecycles.com/images/glowne/15.jpg',
-  ],
+  imageUrls: mockedImageUrls,
   maxLoad: 110,
   rate: 135,
   ratings: 4.8,

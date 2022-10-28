@@ -1,0 +1,15 @@
+.image-to-select {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #EDEDED;
+    border-radius: 30px;
+    margin-bottom: 14px;
+    width: 100px;
+    height: 100px;
+    padding: 8px;
+}
+
+.selected {
+    border: 1px solid #1F49D1;
+}
