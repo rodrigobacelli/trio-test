@@ -1,11 +1,16 @@
 import { render, screen } from '@testing-library/react'
+import { BrowserRouter } from 'react-router-dom'
 import BikeDetails from '.'
 import { SERVICE_FEE_PERCENTAGE } from './BikeDetails.contants'
 import { getServicesFee } from './BikeDetails.utils'
 
 describe('BikeDetails page', () => {
   beforeEach(() => {
-    render(<BikeDetails />)
+    render(
+      <BrowserRouter>
+        <BikeDetails />
+      </BrowserRouter>,
+    )
   })
 
   it('should has a header', () => {

@@ -1,10 +1,15 @@
 import { render, screen } from '@testing-library/react'
+import { BrowserRouter } from 'react-router-dom'
 import { mockedBikesArray } from 'mocks/Bike'
 import Home from './Home.component'
 
 describe('Home page', () => {
   beforeEach(() => {
-    render(<Home bikes={mockedBikesArray} />)
+    render(
+      <BrowserRouter>
+        <Home bikes={mockedBikesArray} />
+      </BrowserRouter>,
+    )
   })
 
   it('should has a header', () => {

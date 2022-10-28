@@ -1,7 +1,7 @@
 import Bike from 'models/Bike'
 
 export const mockedImageUrls = [
-  'https://cremecycles.com/images/glowne/15.jpg',
+  'https://cremecycles.com/images/glowne/14.jpg',
   'https://cremecycles.com/images/glowne/13.jpg',
   'https://cremecycles.com/images/glowne/15.jpg',
 ]
@@ -22,4 +22,9 @@ export const mockedBike: Bike = {
   ratings: 4.8,
 }
 
-export const mockedBikesArray = [mockedBike, mockedBike, mockedBike, mockedBike]
+export const mockedBikesArray = [
+  mockedBike,
+  { ...mockedBike, id: 2 },
+  { ...mockedBike, id: 3 },
+  { ...mockedBike, id: 4 },
+]

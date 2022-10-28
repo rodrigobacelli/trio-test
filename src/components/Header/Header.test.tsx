@@ -1,9 +1,14 @@
 import { render, screen } from '@testing-library/react'
+import { BrowserRouter } from 'react-router-dom'
 import Header from '.'
 
 describe('Header component', () => {
   beforeEach(() => {
-    render(<Header />)
+    render(
+      <BrowserRouter>
+        <Header />
+      </BrowserRouter>,
+    )
   })
 
   it('should has the app name', () => {
