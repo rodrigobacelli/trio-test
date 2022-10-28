@@ -1,4 +1,5 @@
 import BikeImageSelector from 'components/BikeImageSelector'
+import BikeSpecs from 'components/BikeSpecs'
 import Header from 'components/Header'
 import Bike from 'models/Bike'
 import './BikeDetails.styles.css'
@@ -9,29 +10,14 @@ interface BikeDetailsProps {
 
 const BikeDetails = ({ bike }: BikeDetailsProps) => {
   return (
-    <main className='bike-details-container' data-testid='bike-details-page'>
+    <div className='bike-details-container' data-testid='bike-details-page'>
       <Header />
 
       <div className='details-container'>
         <section className='details-data-container'>
           {!!bike?.imageUrls && <BikeImageSelector imageUrls={bike.imageUrls} />}
 
-          <div className='spec-data-container'>
-            <div>
-              <p>Body size</p>
-              <strong>{bike?.bodySize} cm</strong>
-            </div>
-
-            <div>
-              <p>Max load</p>
-              <strong>{bike?.maxLoad} kg</strong>
-            </div>
-
-            <div>
-              <p>Rating</p>
-              <strong>{bike?.ratings}</strong>
-            </div>
-          </div>
+          <BikeSpecs bodySize={bike?.bodySize} maxLoad={bike?.maxLoad} ratings={bike?.ratings} />
 
           <div className='bike-description'>
             <h1 className='bike-details-name' data-testid='bike-name-details'>
@@ -93,7 +79,7 @@ const BikeDetails = ({ bike }: BikeDetailsProps) => {
           </div>
         </section>
       </div>
-    </main>
+    </div>
   )
 }
 

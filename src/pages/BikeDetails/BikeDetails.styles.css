@@ -15,17 +15,6 @@
     border-radius: 30px;
 }
 
-.spec-data-container {
-    display: flex;
-    flex: 1;
-    align-items: center;
-    justify-content: space-between;
-    border: 1px solid #EDEDED;
-    border-radius: 20px;
-    padding: 15px 85px;
-    margin-bottom: 18px;
-}
-
 .bike-description {
     border-top: 1px solid #EDEDED;
     border-bottom: 1px solid #EDEDED;
