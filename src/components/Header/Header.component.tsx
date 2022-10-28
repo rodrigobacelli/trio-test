@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './Header.styles.css'
 
 const Headers = () => {
@@ -6,12 +7,13 @@ const Headers = () => {
       <h1 className='app-name'>BikeRent</h1>
 
       <div className='actions'>
-        <a href='/login' className='login-action'>
+        <Link to='/login' className='login-action'>
           Log in
-        </a>
-        <a href='/sign-up' className='sign-up-action'>
+        </Link>
+
+        <Link to='/sign-up' className='sign-up-action'>
           Sign up
-        </a>
+        </Link>
       </div>
     </header>
   )
