@@ -14,7 +14,7 @@ const BikeDetails = ({ bike }: BikeDetailsProps) => {
       <Header />
 
       <div className='details-container'>
-        <section className='details-data-container bike-data'>
+        <section className='details-data-container'>
           <div className='bike-image-selector'>
             <div>
               {bike?.imageUrls?.map((imageUrl) => (
@@ -83,7 +83,26 @@ const BikeDetails = ({ bike }: BikeDetailsProps) => {
           </div>
         </section>
 
-        <section className='details-data-container rent-overview'></section>
+        <section className='details-data-container rent-overview'>
+          <div className='overview-title'>
+            <strong>Booking Overview</strong>
+          </div>
+
+          <div className='price-row'>
+            <span>Subtotal</span>
+            <span>{bike?.priceByDay || 0} €</span>
+          </div>
+
+          <div className='price-row'>
+            <span>Service Fee</span>
+            <span>{bike?.priceByDay || 0} €</span>
+          </div>
+
+          <div className='price-row'>
+            <h4>Total</h4>
+            <h2>{bike?.priceByDay || 0} €</h2>
+          </div>
+        </section>
       </div>
     </main>
   )

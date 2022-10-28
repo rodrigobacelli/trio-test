@@ -9,7 +9,6 @@
     gap: 24px;
 }
 
-
 .details-data-container {
     padding: 34px;
     border: 1px solid #EDEDED;
@@ -70,7 +69,6 @@
 .bike-prices {
     border-bottom: 1px solid #EDEDED;
     padding: 20px 0;
-
 }
 
 .price-row {
@@ -105,8 +103,15 @@
     height:400px!important;
 }
 
-.rent-overview {}
+.rent-overview {
+    max-height: 200px;
+}
 
+.overview-title {
+    border-bottom: 1px solid #EDEDED;
+    padding-bottom: 10px;
+    margin-bottom: 14px;
+}
 
 @media (max-width: 767px) {
     .bike-details-container {
