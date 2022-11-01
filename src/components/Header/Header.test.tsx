@@ -12,7 +12,7 @@ describe('Header component', () => {
   })
 
   it('should has the app name', () => {
-    const titleElement = screen.getByText('BikeRent')
+    const titleElement = screen.getByText('Bike Rental')
     expect(titleElement).toBeInTheDocument()
   })
 

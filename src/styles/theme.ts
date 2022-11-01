@@ -23,8 +23,9 @@ const theme = createTheme({
     grey: {
       500: '#EDEDED',
     },
-    contrastThreshold: 3,
-    tonalOffset: 0.2,
+    common: {
+      black: '#1B1B1B',
+    },
   },
   typography: {
     h1: {

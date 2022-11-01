@@ -1,21 +1,23 @@
 import { Link } from 'react-router-dom'
-import './Header.styles.css'
+import { Container, LoginButton, SignUpButton, Title } from './Header.styles'
 
 const Headers = () => {
   return (
-    <header className='header-container' data-testid='header'>
-      <h1 className='app-name'>BikeRent</h1>
+    <Container data-testid='header'>
+      <Title>Bike Rental</Title>
 
-      <div className='actions'>
-        <Link to='/login' className='login-action'>
-          Log in
+      <div>
+        <Link to='/login'>
+          <LoginButton>Log in</LoginButton>
         </Link>
 
-        <Link to='/sign-up' className='sign-up-action'>
-          Sign up
+        <Link to='/sign-up'>
+          <SignUpButton variant='contained' color='secondary' disableElevation>
+            Sign up
+          </SignUpButton>
         </Link>
       </div>
-    </header>
+    </Container>
   )
 }
 
