@@ -1,7 +1,7 @@
-import { CardMedia, Divider, Typography } from '@mui/material'
+import { Divider, Typography } from '@mui/material'
 import BikeType from 'components/BikeType'
 import Bike from 'models/Bike'
-import { Container, Header, Footer, Name, PriceText } from './BikeCard.styles'
+import { Container, Header, Footer, Name, PriceText, ImageContainer } from './BikeCard.styles'
 
 type JustDisplayedBikeData = Omit<Bike, 'candidateId' | 'maxLoad' | 'ratings'>
 
@@ -21,7 +21,15 @@ const BikeCard = ({
     <Container variant='outlined' onClick={handleOpenBikeDetails} data-testid='bike-card'>
       <Header action={<div>...</div>} />
 
-      <CardMedia component='img' image={cardImage} alt='Bike Image' data-testid='bike-image' />
+      <ImageContainer>
+        <img
+          src={cardImage}
+          width='100%'
+          alt='Bike Image'
+          className='bike-image'
+          data-testid='bike-image'
+        />
+      </ImageContainer>
 
       <Name data-testid='bike-name'>{name}</Name>
 

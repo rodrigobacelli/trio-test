@@ -12,8 +12,8 @@ export const Container = styled(Box)(({ theme }) => ({
   left: 0,
   top: 0,
   padding: '44px 100px',
-  borderBottomLeftRadius: theme.shape.borderRadius * 2,
-  borderBottomRightRadius: theme.shape.borderRadius * 2,
+  borderBottomLeftRadius: theme.shape.borderRadius,
+  borderBottomRightRadius: theme.shape.borderRadius,
   marginBottom: -180,
 }))
 
