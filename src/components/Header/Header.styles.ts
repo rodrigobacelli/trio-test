@@ -1,4 +1,4 @@
-import { Box, Button, ButtonProps, styled, Typography } from '@mui/material'
+import { Box, Button, ButtonProps, styled, Typography, TypographyProps } from '@mui/material'
 
 export const Container = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.primary.main,
@@ -17,7 +17,7 @@ export const Container = styled(Box)(({ theme }) => ({
   marginBottom: -180,
 }))
 
-export const Title = styled(Typography)<ButtonProps>(({ theme }) => ({
+export const Title = styled(Typography)<TypographyProps>(({ theme }) => ({
   color: theme.palette.common.white,
   textTransform: 'none',
   fontSize: 48,
