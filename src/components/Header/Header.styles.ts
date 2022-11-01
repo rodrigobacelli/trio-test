@@ -7,14 +7,14 @@ export const Container = styled(Box)(({ theme }) => ({
   width: '100%',
   justifyContent: 'space-between',
   alignItems: 'flex-start',
-  position: 'absolute',
+  position: 'relative',
   height: 275,
   left: 0,
   top: 0,
   padding: '44px 100px',
   borderBottomLeftRadius: theme.shape.borderRadius * 2,
   borderBottomRightRadius: theme.shape.borderRadius * 2,
-  zIndex: -1,
+  marginBottom: -180,
 }))
 
 export const Title = styled(Typography)<ButtonProps>(({ theme }) => ({
@@ -31,7 +31,7 @@ export const LoginButton = styled(Button)<ButtonProps>(({ theme }) => ({
   fontSize: 16,
 
   '&:hover': {
-    backgroundColor: theme.palette.primary.dark,
+    color: theme.palette.primary.light,
   },
 }))
 
@@ -44,6 +44,6 @@ export const SignUpButton = styled(Button)<ButtonProps>(({ theme }) => ({
   marginLeft: 30,
 
   '&:hover': {
-    backgroundColor: theme.palette.secondary.dark,
+    backgroundColor: theme.palette.primary.light,
   },
 }))
