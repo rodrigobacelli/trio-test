@@ -1,3 +1,4 @@
+import { Box, Divider, Typography } from '@mui/material'
 import BikeImageSelector from 'components/BikeImageSelector'
 import BikeSpecs from 'components/BikeSpecs'
 import BikeType from 'components/BikeType'
@@ -6,7 +7,7 @@ import Header from 'components/Header'
 import Bike from 'models/Bike'
 import { getRateByWeek } from 'utils/rates'
 import { getServicesFee } from './BikeDetails.utils'
-import './BikeDetails.styles.css'
+import { Content, DetailsContainer, OverviewContainer, PriceRow } from './BikeDetails.styles'
 
 interface BikeDetailsProps {
   bike?: Bike
@@ -20,64 +21,90 @@ const BikeDetails = ({ bike }: BikeDetailsProps) => {
   const total = rateByDay + servicesFee
 
   return (
-    <div className='bike-details-container' data-testid='bike-details-page'>
+    <div data-testid='bike-details-page'>
       <Header />
 
-      <div className='details-container'>
-        <section className='details-data-container'>
+      <Content>
+        <DetailsContainer variant='outlined'>
           {!!bike?.imageUrls && <BikeImageSelector imageUrls={bike.imageUrls} />}
 
           <BikeSpecs bodySize={bike?.bodySize} maxLoad={bike?.maxLoad} ratings={bike?.ratings} />
 
-          <div className='bike-description'>
-            <h1 className='bike-details-name' data-testid='bike-name-details'>
+          <Divider />
+
+          <Box marginY={2.25}>
+            <Typography
+              variant='h1'
+              fontSize={38}
+              fontWeight={800}
+              marginBottom={0.5}
+              data-testid='bike-name-details'
+            >
               {bike?.name}
-            </h1>
+            </Typography>
 
             <BikeType type={bike?.type} />
 
-            <p className='bike-details-description'>{bike?.description}</p>
-          </div>
+            <Typography marginTop={1.5} fontSize={14}>
+              {bike?.description}
+            </Typography>
+          </Box>
 
-          <div className='bike-prices'>
-            <div className='price-row'>
-              <span>Day</span>
-              <strong>{rateByDay} €</strong>
-            </div>
+          <Divider />
 
-            <div className='price-row'>
-              <span>Week</span>
-              <strong>{rateByWeek} €</strong>
-            </div>
-          </div>
+          <Box marginY={2.25}>
+            <PriceRow>
+              <Typography>Day</Typography>
+              <Typography fontWeight={800} fontSize={24} letterSpacing={1}>
+                {rateByDay} €
+              </Typography>
+            </PriceRow>
 
-          <div className='map-container'>
-            <h1>Full adress after booking</h1>
+            <PriceRow>
+              <Typography>Week</Typography>
+              <Typography fontWeight={800} fontSize={24} letterSpacing={1}>
+                {rateByWeek} €
+              </Typography>
+            </PriceRow>
+          </Box>
+
+          <Divider />
+
+          <Box marginTop={3.25}>
+            <Typography variant='h1' fontSize={24} fontWeight={800}>
+              Full adress after booking
+            </Typography>
             <BookingAddressMap />
-          </div>
-        </section>
+          </Box>
+        </DetailsContainer>
 
-        <section className='details-data-container rent-overview'>
-          <div className='overview-title'>
-            <strong>Booking Overview</strong>
-          </div>
+        <OverviewContainer variant='outlined'>
+          <Typography variant='h2' fontSize={16} marginBottom={1.25}>
+            Booking Overview
+          </Typography>
 
-          <div className='price-row'>
-            <span>Subtotal</span>
-            <span>{rateByDay} €</span>
-          </div>
+          <Divider />
 
-          <div className='price-row'>
-            <span>Service Fee</span>
-            <span>{servicesFee} €</span>
-          </div>
+          <PriceRow marginTop={1.75}>
+            <Typography>Subtotal</Typography>
+            <Typography>{rateByDay} €</Typography>
+          </PriceRow>
 
-          <div className='price-row'>
-            <h4>Total</h4>
-            <h2>{total} €</h2>
-          </div>
-        </section>
-      </div>
+          <PriceRow marginTop={1.5}>
+            <Typography>Service Fee</Typography>
+            <Typography>{servicesFee} €</Typography>
+          </PriceRow>
+
+          <PriceRow marginTop={1.75}>
+            <Typography fontWeight={800} fontSize={16}>
+              Total
+            </Typography>
+            <Typography variant='h2' fontSize={24} letterSpacing={1}>
+              {total} €
+            </Typography>
+          </PriceRow>
+        </OverviewContainer>
+      </Content>
     </div>
   )
 }
