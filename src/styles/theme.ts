@@ -28,6 +28,14 @@ const theme = createTheme({
     },
   },
   typography: {
+    fontFamily: [
+      'Mont',
+      'Roboto',
+      'sans-serif',
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"',
+    ].join(','),
     h1: {
       fontWeight: 'bold',
     },
