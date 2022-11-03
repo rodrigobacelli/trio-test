@@ -9,11 +9,13 @@ export const Content = styled(Box)<BoxProps>(() => ({
   gap: 24,
 }))
 
-export const DetailsContainer = styled(Card)<CardProps>(() => ({
+export const DetailsContainer = styled(Card)<CardProps>(({ theme }) => ({
+  borderColor: theme.palette.grey[500],
   padding: 34,
 }))
 
-export const OverviewContainer = styled(Card)<CardProps>(() => ({
+export const OverviewContainer = styled(Card)<CardProps>(({ theme }) => ({
+  borderColor: theme.palette.grey[500],
   padding: 34,
   maxHeight: 200,
 }))

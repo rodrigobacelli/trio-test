@@ -1,4 +1,5 @@
-import './BikeSpecs.styles.css'
+import { Divider } from '@mui/material'
+import { Container, SpecText, SpecTitle } from './BikeSpecs.styles'
 
 interface BikeSpecsProps {
   bodySize?: number
@@ -8,22 +9,26 @@ interface BikeSpecsProps {
 
 const BikeSpecs = ({ bodySize, maxLoad, ratings }: BikeSpecsProps) => {
   return (
-    <div className='bike-specs-container' data-testid='bike-specs'>
+    <Container variant='outlined' data-testid='bike-specs'>
       <div data-testid='bike-body-size'>
-        <p>Body size</p>
-        <strong>{bodySize} cm</strong>
+        <SpecTitle>Body size</SpecTitle>
+        <SpecText>{bodySize} cm</SpecText>
       </div>
+
+      <Divider orientation='vertical' flexItem />
 
       <div data-testid='bike-max-load'>
-        <p>Max load</p>
-        <strong>{maxLoad} kg</strong>
+        <SpecTitle>Max load</SpecTitle>
+        <SpecText>{maxLoad} kg</SpecText>
       </div>
 
+      <Divider orientation='vertical' flexItem />
+
       <div data-testid='bike-ratings'>
-        <p>Rating</p>
-        <strong>{ratings}</strong>
+        <SpecTitle>Rating</SpecTitle>
+        <SpecText>{ratings}</SpecText>
       </div>
-    </div>
+    </Container>
   )
 }
 
