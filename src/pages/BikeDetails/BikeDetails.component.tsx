@@ -11,6 +11,8 @@ import {
   BookingButton,
   Content,
   DetailsContainer,
+  FavoriteIcon,
+  InfoIcon,
   LikeButton,
   OverviewContainer,
   PriceRow,
@@ -55,7 +57,9 @@ const BikeDetails = ({ bike }: BikeDetailsProps) => {
                 <BikeType type={bike?.type} />
               </div>
 
-              <LikeButton>s2</LikeButton>
+              <LikeButton>
+                <FavoriteIcon />
+              </LikeButton>
             </Box>
 
             <Typography marginTop={1.5} fontSize={14}>
@@ -100,12 +104,20 @@ const BikeDetails = ({ bike }: BikeDetailsProps) => {
           <Divider />
 
           <PriceRow marginTop={1.75} data-testid='bike-overview-single-price'>
-            <Typography>Subtotal i</Typography>
+            <Box display='flex' alignItems='center'>
+              <Typography marginRight={1}>Subtotal</Typography>
+              <InfoIcon fontSize='small' />
+            </Box>
+
             <Typography>{rateByDay} €</Typography>
           </PriceRow>
 
           <PriceRow marginTop={1.5} data-testid='bike-overview-single-price'>
-            <Typography>Service Fee i</Typography>
+            <Box display='flex' alignItems='center'>
+              <Typography marginRight={1}>Service Fee</Typography>
+              <InfoIcon fontSize='small' />
+            </Box>
+
             <Typography>{servicesFee} €</Typography>
           </PriceRow>
 

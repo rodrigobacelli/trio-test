@@ -1,4 +1,5 @@
 import { Box, Button, ButtonProps, styled, Typography, TypographyProps } from '@mui/material'
+import LocationOnOutlined from '@mui/icons-material/LocationOnOutlined'
 
 export const Container = styled(Box)(({ theme }) => ({
   backgroundColor: theme.palette.primary.main,
@@ -15,6 +16,10 @@ export const Container = styled(Box)(({ theme }) => ({
   borderBottomLeftRadius: theme.shape.borderRadius,
   borderBottomRightRadius: theme.shape.borderRadius,
   marginBottom: -180,
+}))
+
+export const Icon = styled(LocationOnOutlined)(({ theme }) => ({
+  color: theme.palette.common.white,
 }))
 
 export const Actions = styled(Box)(() => ({

@@ -9,6 +9,8 @@ import {
   IconButtonProps,
   styled,
 } from '@mui/material'
+import FavoriteBorderOutlined from '@mui/icons-material/FavoriteBorderOutlined'
+import { InfoOutlined } from '@mui/icons-material'
 
 export const Content = styled(Box)<BoxProps>(() => ({
   padding: '0 100px 44px',
@@ -29,6 +31,14 @@ export const LikeButton = styled(IconButton)<IconButtonProps>(({ theme }) => ({
   borderRadius: 20,
   width: 60,
   height: 60,
+}))
+
+export const FavoriteIcon = styled(FavoriteBorderOutlined)(({ theme }) => ({
+  color: theme.palette.common.black,
+}))
+
+export const InfoIcon = styled(InfoOutlined)(({ theme }) => ({
+  color: theme.palette.grey[500],
 }))
 
 export const OverviewContainer = styled(Card)<CardProps>(({ theme }) => ({

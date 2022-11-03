@@ -1,6 +1,6 @@
 import { Box, Typography } from '@mui/material'
 import { Link } from 'react-router-dom'
-import { Actions, Container, LoginButton, SignUpButton, Title } from './Header.styles'
+import { Actions, Container, Icon, LoginButton, SignUpButton, Title } from './Header.styles'
 
 const Headers = () => {
   return (
@@ -9,10 +9,11 @@ const Headers = () => {
 
       <Actions>
         <Box display='flex' alignItems='center' data-testid='location-label'>
-          <Typography color='white' marginRight={1}>
+          <Typography color='white' marginRight={0.75}>
             Manhattan
           </Typography>
-          s2
+
+          <Icon fontSize='small' />
         </Box>
 
         <Link to='/login' data-testid='login-button'>

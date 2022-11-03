@@ -9,6 +9,7 @@ import {
   BoxProps,
   TypographyProps,
 } from '@mui/material'
+import { FavoriteBorderOutlined } from '@mui/icons-material'
 
 export const Container = styled(Card)<CardProps>(({ theme }) => ({
   borderColor: theme.palette.grey[500],
@@ -30,6 +31,10 @@ export const Container = styled(Card)<CardProps>(({ theme }) => ({
 
 export const Header = styled(CardHeader)<CardHeaderProps>(() => ({
   paddingTop: 0,
+}))
+
+export const FavoriteIcon = styled(FavoriteBorderOutlined)(({ theme }) => ({
+  color: theme.palette.common.black,
 }))
 
 export const ImageContainer = styled(Box)<BoxProps>(() => ({

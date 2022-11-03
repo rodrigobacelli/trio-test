@@ -1,7 +1,15 @@
-import { Divider, Typography } from '@mui/material'
+import { Divider, IconButton, Typography } from '@mui/material'
 import BikeType from 'components/BikeType'
 import Bike from 'models/Bike'
-import { Container, Header, Footer, Name, PriceText, ImageContainer } from './BikeCard.styles'
+import {
+  Container,
+  Header,
+  Footer,
+  Name,
+  PriceText,
+  ImageContainer,
+  FavoriteIcon,
+} from './BikeCard.styles'
 
 type JustDisplayedBikeData = Omit<Bike, 'candidateId' | 'maxLoad' | 'ratings'>
 
@@ -17,9 +25,15 @@ const BikeCard = ({
   rate,
   handleOpenBikeDetails,
 }: BikeCardComponentProps) => {
+  const LikeButton = (
+    <IconButton>
+      <FavoriteIcon />
+    </IconButton>
+  )
+
   return (
     <Container variant='outlined' onClick={handleOpenBikeDetails} data-testid='bike-card'>
-      <Header action={<div>...</div>} />
+      <Header action={LikeButton} />
 
       <ImageContainer>
         <img
