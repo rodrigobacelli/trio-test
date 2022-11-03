@@ -17,6 +17,13 @@ export const Container = styled(Box)(({ theme }) => ({
   marginBottom: -180,
 }))
 
+export const Actions = styled(Box)(() => ({
+  display: 'flex',
+  flex: 1,
+  justifyContent: 'flex-end',
+  alignItems: 'center',
+}))
+
 export const Title = styled(Typography)<TypographyProps>(({ theme }) => ({
   color: theme.palette.common.white,
   textTransform: 'none',
@@ -29,6 +36,7 @@ export const LoginButton = styled(Button)<ButtonProps>(({ theme }) => ({
   borderRadius: 16,
   textTransform: 'none',
   fontSize: 16,
+  margin: '0 30px',
 
   '&:hover': {
     color: theme.palette.primary.light,
@@ -41,7 +49,6 @@ export const SignUpButton = styled(Button)<ButtonProps>(({ theme }) => ({
   textTransform: 'none',
   fontSize: 16,
   padding: '14px 20px',
-  marginLeft: 30,
 
   '&:hover': {
     backgroundColor: theme.palette.primary.light,
