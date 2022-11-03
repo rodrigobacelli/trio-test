@@ -1,4 +1,4 @@
-import './ImageToSelect.styles.css'
+import { Container } from './ImageToSelect.styles'
 
 interface ImageToSelectComponentProps {
   imageUrl: string
@@ -12,14 +12,15 @@ const ImageToSelect = ({
   handleSelectImage,
 }: ImageToSelectComponentProps) => {
   return (
-    <div
+    <Container
+      isSelected={isSelected}
+      variant='outlined'
       key={imageUrl}
-      className={`image-to-select ${isSelected && 'selected'}`}
       onClick={() => handleSelectImage(imageUrl)}
       data-testid='image-to-select'
     >
       <img src={imageUrl} width='100%' />
-    </div>
+    </Container>
   )
 }
 
