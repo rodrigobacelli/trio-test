@@ -19,6 +19,11 @@ describe('BikeDetails page', () => {
     expect(headerElement).toBeInTheDocument()
   })
 
+  it('should has breadcrumbs', () => {
+    const breadcrumbsElement = screen.getByTestId('bike-details-breadcrumbs')
+    expect(breadcrumbsElement).toBeInTheDocument()
+  })
+
   it('should has the details container with the image selector, bike name, prices and a map', () => {
     const detailsContainerElement = screen.getByTestId('bike-details-container')
     expect(detailsContainerElement).toBeInTheDocument()

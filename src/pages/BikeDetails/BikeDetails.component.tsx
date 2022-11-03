@@ -1,4 +1,4 @@
-import { Box, Divider, Typography } from '@mui/material'
+import { Box, Breadcrumbs, Divider, Link, Typography } from '@mui/material'
 import BikeImageSelector from 'components/BikeImageSelector'
 import BikeSpecs from 'components/BikeSpecs'
 import BikeType from 'components/BikeType'
@@ -9,6 +9,9 @@ import { getRateByWeek } from 'utils/rates'
 import { getServicesFee } from './BikeDetails.utils'
 import {
   BookingButton,
+  BreadcrumbContainer,
+  BreadcrumbHome,
+  BreadcrumbSeparator,
   Content,
   DetailsContainer,
   FavoriteIcon,
@@ -32,6 +35,18 @@ const BikeDetails = ({ bike }: BikeDetailsProps) => {
   return (
     <div data-testid='bike-details-page'>
       <Header />
+
+      <BreadcrumbContainer data-testid='bike-details-breadcrumbs'>
+        <Breadcrumbs separator={<BreadcrumbSeparator />}>
+          <Link underline='hover' display='flex' alignItems='center' color='white' href='/'>
+            <BreadcrumbHome />
+          </Link>
+
+          <Typography fontWeight={800} letterSpacing={1} color='white'>
+            {bike?.name}
+          </Typography>
+        </Breadcrumbs>
+      </BreadcrumbContainer>
 
       <Content>
         <DetailsContainer variant='outlined' data-testid='bike-details-container'>
