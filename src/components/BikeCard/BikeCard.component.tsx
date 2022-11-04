@@ -32,36 +32,38 @@ const BikeCard = ({
   )
 
   return (
-    <Container variant='outlined' onClick={handleOpenBikeDetails} data-testid='bike-card'>
+    <Container variant='outlined' data-testid='bike-card'>
       <Header action={LikeButton} />
 
-      <ImageContainer>
-        <img
-          src={cardImage}
-          width='100%'
-          alt='Bike Image'
-          className='bike-image'
-          data-testid='bike-image'
-        />
-      </ImageContainer>
+      <div onClick={handleOpenBikeDetails}>
+        <ImageContainer>
+          <img
+            src={cardImage}
+            width='100%'
+            alt='Bike Image'
+            className='bike-image'
+            data-testid='bike-image'
+          />
+        </ImageContainer>
 
-      <Name data-testid='bike-name'>{name}</Name>
+        <Name data-testid='bike-name'>{name}</Name>
 
-      <Divider />
+        <Divider />
 
-      <Footer
-        display='flex'
-        justifyContent='space-between'
-        alignItems='center'
-        data-testid='card-footer'
-      >
-        <BikeType type={type} />
+        <Footer
+          display='flex'
+          justifyContent='space-between'
+          alignItems='center'
+          data-testid='card-footer'
+        >
+          <BikeType type={type} />
 
-        <Typography letterSpacing={1} data-testid='bike-price-day'>
-          <PriceText component={'span'}>{rate} €/</PriceText>
-          Day
-        </Typography>
-      </Footer>
+          <Typography letterSpacing={1} data-testid='bike-price-day'>
+            <PriceText component={'span'}>{rate} €/</PriceText>
+            Day
+          </Typography>
+        </Footer>
+      </div>
     </Container>
   )
 }
