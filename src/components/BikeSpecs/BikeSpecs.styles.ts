@@ -9,6 +9,10 @@ export const Container = styled(Card)<CardProps>(({ theme }) => ({
   borderRadius: 20,
   padding: '15px 85px',
   marginBottom: 18,
+
+  [theme.breakpoints.down('md')]: {
+    padding: 20,
+  },
 }))
 
 export const SpecTitle = styled(Typography)<TypographyProps>(({ theme }) => ({

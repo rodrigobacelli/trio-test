@@ -19,13 +19,11 @@ export const Container = styled(Card, {
   '&:hover': {
     cursor: 'pointer',
   },
-}))
 
-// @media (max-width: 767px) {
-//   .image-to-select {
-//       width: 50px;
-//       height: 50px;
-//       border-radius: 16px;
-//       margin-bottom: 0;
-//   }
-// }
+  [theme.breakpoints.down('md')]: {
+    marginBottom: 0,
+    width: 50,
+    height: 50,
+    borderRadius: theme.shape.borderRadius / 2,
+  },
+}))

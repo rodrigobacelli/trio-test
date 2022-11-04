@@ -31,17 +31,26 @@ export const BreadcrumbSeparator = styled(ChevronRightOutlined)(({ theme }) => (
   fontWeight: 300,
 }))
 
-export const Content = styled(Box)<BoxProps>(() => ({
+export const Content = styled(Box)<BoxProps>(({ theme }) => ({
   padding: '0 100px 44px',
   position: 'relative',
   display: 'grid',
   gridTemplateColumns: '2fr 1fr',
   gap: 24,
+
+  [theme.breakpoints.down('lg')]: {
+    gridTemplateColumns: '1fr',
+    padding: '0 20px 44px',
+  },
 }))
 
 export const DetailsContainer = styled(Card)<CardProps>(({ theme }) => ({
   borderColor: theme.palette.grey[500],
   padding: 34,
+
+  [theme.breakpoints.down('lg')]: {
+    padding: 24,
+  },
 }))
 
 export const LikeButton = styled(IconButton)<IconButtonProps>(({ theme }) => ({

@@ -12,8 +12,12 @@ export const QuantityContainer = styled(Box)<BoxProps>(() => ({
   marginBottom: 35,
 }))
 
-export const ListContainer = styled(Box)<BoxProps>(() => ({
+export const ListContainer = styled(Box)<BoxProps>(({ theme }) => ({
   display: 'grid',
   gridTemplateColumns: '1fr 1fr 1fr',
   gap: 25,
+
+  [theme.breakpoints.down('md')]: {
+    gridTemplateColumns: '1fr',
+  },
 }))
