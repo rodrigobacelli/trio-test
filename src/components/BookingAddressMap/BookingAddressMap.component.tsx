@@ -1,4 +1,4 @@
-import './BookingAddressMap.styles.css'
+import { Container, MapIframeContainer } from './BookingAddressMap.styles'
 
 interface BookingAddressMapProps {
   address?: string
@@ -9,10 +9,10 @@ const mockedAddress =
 
 const BookingAddressMap = ({ address = mockedAddress }: BookingAddressMapProps) => {
   return (
-    <div className='booking-address-map-container' data-testid='booking-address-map'>
-      <div className='map-iframe-container'>
+    <Container data-testid='booking-address-map'>
+      <MapIframeContainer>
         <iframe
-          className='map-iframe'
+          height={400}
           width='100%'
           frameBorder='0'
           scrolling='no'
@@ -21,8 +21,8 @@ const BookingAddressMap = ({ address = mockedAddress }: BookingAddressMapProps) 
           src={address}
           data-testid='map'
         ></iframe>
-      </div>
-    </div>
+      </MapIframeContainer>
+    </Container>
   )
 }
 

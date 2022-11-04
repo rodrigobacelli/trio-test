@@ -1,10 +1,11 @@
-import './Login.styles.css'
+import { Typography } from '@mui/material'
+import { Container } from './Login.styles'
 
 const Login = () => {
   return (
-    <div className='login-container' data-testid='login-page'>
-      <h1>Login</h1>
-    </div>
+    <Container data-testid='login-page'>
+      <Typography variant='h1'>Login</Typography>
+    </Container>
   )
 }
 

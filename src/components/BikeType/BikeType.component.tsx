@@ -1,15 +1,11 @@
-import './BikeType.styles.css'
+import { Chip } from '@mui/material'
 
 interface BikeTypeProps {
   type?: string
 }
 
 const BikeType = ({ type }: BikeTypeProps) => {
-  return (
-    <p className='bike-type' data-testid='bike-type'>
-      {type}
-    </p>
-  )
+  return <Chip color='secondary' data-testid='bike-type' label={type} />
 }
 
 export default BikeType

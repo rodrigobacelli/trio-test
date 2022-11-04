@@ -1,5 +1,5 @@
 import BikeImageList from 'components/BikeImageList'
-import './BikeImageSelector.styles.css'
+import { Container } from './BikeImageSelector.styles'
 
 interface BikeImageSelectorComponentProps {
   selectedImageUrl: string
@@ -13,7 +13,7 @@ const BikeImageSelector = ({
   handleSelectImage,
 }: BikeImageSelectorComponentProps) => {
   return (
-    <div className='bike-image-selector-container' data-testid='bike-image-selector'>
+    <Container data-testid='bike-image-selector'>
       <BikeImageList
         selectedImageUrl={selectedImageUrl}
         imageUrls={imageUrls}
@@ -23,11 +23,12 @@ const BikeImageSelector = ({
       <img
         key={selectedImageUrl}
         src={selectedImageUrl}
-        className='selected-image'
+        width='100%'
+        height='100%'
         alt="Bigger bike's image"
         data-testid='bike-selected-image'
       />
-    </div>
+    </Container>
   )
 }
 

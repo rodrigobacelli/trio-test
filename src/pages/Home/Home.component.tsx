@@ -1,7 +1,7 @@
 import Header from 'components/Header'
 import BikeList from 'components/BikeList'
 import Bike from 'models/Bike'
-import './Home.styles.css'
+import { Content } from './Home.styles'
 
 interface HomeProps {
   bikes: Bike[]
@@ -9,10 +9,12 @@ interface HomeProps {
 
 const Home = ({ bikes }: HomeProps) => {
   return (
-    <div className='container' data-testid='home-page'>
+    <div data-testid='home-page'>
       <Header />
 
-      <BikeList bikes={bikes} />
+      <Content>
+        <BikeList bikes={bikes} />
+      </Content>
     </div>
   )
 }
