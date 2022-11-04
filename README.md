@@ -86,5 +86,7 @@ https://user-images.githubusercontent.com/42481884/200061794-1ec4771f-de22-4007-
 
 https://user-images.githubusercontent.com/42481884/200061823-e73cd233-8a32-417c-a4ef-af38f81a6824.mp4
 
+## Test coverage (so far)
+<img width="487" alt="Captura de Tela 2022-11-04 às 16 06 44" src="https://user-images.githubusercontent.com/42481884/200062093-f0dcd641-e994-4248-acef-5c24bc0bc2e6.png">
 
 
