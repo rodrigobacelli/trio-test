@@ -6,9 +6,9 @@ This project was created for the Trio Challenge, where candidates must create a 
 
 ## Stack used
 
-- ReactJS
-- TypeScript
-- Material UI
+- [ReactJS](https://reactjs.org/docs/getting-started.html)
+- [TypeScript](https://www.typescriptlang.org/docs/)
+- [Material UI](https://mui.com/pt/material-ui/getting-started/overview/)
 
 ## How to run it
 
@@ -75,3 +75,16 @@ It launches the test runner in the interactive watch mode.
 - [utils/](./src/utils)
   - [rates/](./src/utils/rates.ts)
 - [App.tsx](./src/App.tsx)
+
+## Overview
+### Desktop
+
+https://user-images.githubusercontent.com/42481884/200061794-1ec4771f-de22-4007-9952-3d36b44feed2.mp4
+
+### Mobile
+
+
+https://user-images.githubusercontent.com/42481884/200061823-e73cd233-8a32-417c-a4ef-af38f81a6824.mp4
+
+
+
