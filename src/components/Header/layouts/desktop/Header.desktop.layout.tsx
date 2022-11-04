@@ -1,8 +1,8 @@
 import { Box, Typography } from '@mui/material'
 import { Link } from 'react-router-dom'
-import { Actions, Container, Icon, LoginButton, SignUpButton, Title } from './Header.styles'
+import { Actions, Container, Icon, LoginButton, SignUpButton, Title } from './Header.desktop.styles'
 
-const Headers = () => {
+const DesktopHeader = () => {
   return (
     <Container data-testid='header'>
       <Title data-testid='app-name'>Bike Rental</Title>
@@ -30,4 +30,4 @@ const Headers = () => {
   )
 }
 
-export default Headers
+export default DesktopHeader

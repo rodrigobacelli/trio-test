@@ -5,11 +5,15 @@ export const Container = styled(Box)<BoxProps>(() => ({
   marginTop: 45,
 }))
 
-export const QuantityContainer = styled(Box)<BoxProps>(() => ({
+export const QuantityContainer = styled(Box)<BoxProps>(({ theme }) => ({
   display: 'flex',
   width: '100%',
   justifyContent: 'flex-end',
   marginBottom: 35,
+
+  [theme.breakpoints.down('md')]: {
+    marginBottom: 8,
+  },
 }))
 
 export const ListContainer = styled(Box)<BoxProps>(({ theme }) => ({

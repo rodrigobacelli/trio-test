@@ -5,6 +5,6 @@ export const Content = styled(Box)(({ theme }) => ({
   position: 'relative',
 
   [theme.breakpoints.down('md')]: {
-    padding: 44,
+    padding: '8vw',
   },
 }))

@@ -27,6 +27,10 @@ export const Container = styled(Card)<CardProps>(({ theme }) => ({
         20px 20px 80px rgba(0, 0, 0, 0.07)
     `,
   },
+
+  [theme.breakpoints.down('md')]: {
+    width: '100%',
+  },
 }))
 
 export const Header = styled(CardHeader)<CardHeaderProps>(() => ({
