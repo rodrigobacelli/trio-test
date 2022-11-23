@@ -9,6 +9,7 @@ describe('BikeImageList component', () => {
         imageUrls={mockedImageUrls}
         selectedImageUrl={mockedImageUrls[0]}
         handleSelectImage={jest.fn}
+        selectedImageIndex={0}
       />,
     )
   })

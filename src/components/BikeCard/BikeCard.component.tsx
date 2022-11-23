@@ -1,5 +1,6 @@
 import { Divider, IconButton, Typography } from '@mui/material'
 import BikeType from 'components/BikeType'
+import BikePlaceholder from 'assets/bike-placeholder.png'
 import Bike from 'models/Bike'
 import {
   Container,
@@ -14,16 +15,20 @@ import {
 type JustDisplayedBikeData = Omit<Bike, 'candidateId' | 'maxLoad' | 'ratings'>
 
 interface BikeCardComponentProps extends JustDisplayedBikeData {
+  isImageLoaded: boolean
   cardImage: string
   handleOpenBikeDetails: () => void
+  handleImageHasLoaded: () => void
 }
 
 const BikeCard = ({
+  isImageLoaded,
   name,
   cardImage,
   type,
   rate,
   handleOpenBikeDetails,
+  handleImageHasLoaded,
 }: BikeCardComponentProps) => {
   const LikeButton = (
     <IconButton>
@@ -37,12 +42,23 @@ const BikeCard = ({
 
       <div onClick={handleOpenBikeDetails}>
         <ImageContainer>
+          {!isImageLoaded && (
+            <img
+              src={BikePlaceholder}
+              width='100%'
+              alt='Bike Placeholder Image'
+              className='bike-image'
+              placeholder={BikePlaceholder}
+            />
+          )}
+
           <img
             src={cardImage}
             width='100%'
             alt='Bike Image'
             className='bike-image'
             data-testid='bike-image'
+            onLoad={handleImageHasLoaded}
           />
         </ImageContainer>
 
