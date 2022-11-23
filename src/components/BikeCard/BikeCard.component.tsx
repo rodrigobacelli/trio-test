@@ -10,6 +10,7 @@ import {
   PriceText,
   ImageContainer,
   FavoriteIcon,
+  BikeImage,
 } from './BikeCard.styles'
 
 type JustDisplayedBikeData = Omit<Bike, 'candidateId' | 'maxLoad' | 'ratings'>
@@ -18,7 +19,7 @@ interface BikeCardComponentProps extends JustDisplayedBikeData {
   isImageLoaded: boolean
   cardImage: string
   handleOpenBikeDetails: () => void
-  handleImageHasLoaded: () => void
+  handleIsImageLoaded: (isLoading: boolean) => void
 }
 
 const BikeCard = ({
@@ -28,7 +29,7 @@ const BikeCard = ({
   type,
   rate,
   handleOpenBikeDetails,
-  handleImageHasLoaded,
+  handleIsImageLoaded,
 }: BikeCardComponentProps) => {
   const LikeButton = (
     <IconButton>
@@ -47,18 +48,18 @@ const BikeCard = ({
               src={BikePlaceholder}
               width='100%'
               alt='Bike Placeholder Image'
-              className='bike-image'
               placeholder={BikePlaceholder}
             />
           )}
 
-          <img
+          <BikeImage
             src={cardImage}
+            isLoaded={isImageLoaded}
             width='100%'
             alt='Bike Image'
-            className='bike-image'
             data-testid='bike-image'
-            onLoad={handleImageHasLoaded}
+            onLoadStart={() => handleIsImageLoaded(false)}
+            onLoad={() => handleIsImageLoaded(true)}
           />
         </ImageContainer>
 

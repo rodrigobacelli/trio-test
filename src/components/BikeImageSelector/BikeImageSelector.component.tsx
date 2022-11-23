@@ -1,5 +1,5 @@
 import BikeImageList from 'components/BikeImageList'
-import { Container } from './BikeImageSelector.styles'
+import { BikeImage, Container } from './BikeImageSelector.styles'
 import BikePlaceholder from 'assets/bike-placeholder.png'
 
 interface BikeImageSelectorComponentProps {
@@ -8,7 +8,7 @@ interface BikeImageSelectorComponentProps {
   imageUrls: string[]
   isImageLoaded: boolean
   handleSelectImage: (imageUrl: string, index: number) => void
-  handleImageHasLoaded: () => void
+  handleIsImageLoaded: (newStatus: boolean) => void
 }
 
 const BikeImageSelector = ({
@@ -16,7 +16,7 @@ const BikeImageSelector = ({
   selectedImageIndex,
   imageUrls,
   isImageLoaded,
-  handleImageHasLoaded,
+  handleIsImageLoaded,
   handleSelectImage,
 }: BikeImageSelectorComponentProps) => {
   return (
@@ -36,14 +36,17 @@ const BikeImageSelector = ({
           alt="Bigger bike's image Placeholder"
         />
       )}
-      <img
+
+      <BikeImage
+        isLoaded={isImageLoaded}
         key={selectedImageUrl}
         src={selectedImageUrl}
         width='100%'
         height='100%'
         alt="Bigger bike's image"
         data-testid='bike-selected-image'
-        onLoad={handleImageHasLoaded}
+        onLoadStart={() => handleIsImageLoaded(false)}
+        onLoad={() => handleIsImageLoaded(true)}
       />
     </Container>
   )

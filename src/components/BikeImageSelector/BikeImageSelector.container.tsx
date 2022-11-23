@@ -15,8 +15,8 @@ const BikeImageSelectorContainer = ({ imageUrls }: BikeImageSelectorProps) => {
     setSelectedImageIndex(index)
   }
 
-  const handleImageHasLoaded = () => {
-    setIsImageLoaded(true)
+  const handleIsImageLoaded = (isLoading: boolean) => {
+    setIsImageLoaded(isLoading)
   }
 
   return (
@@ -24,7 +24,7 @@ const BikeImageSelectorContainer = ({ imageUrls }: BikeImageSelectorProps) => {
       selectedImageUrl={selectedImageUrl}
       selectedImageIndex={selectedImageIndex}
       isImageLoaded={isImageLoaded}
-      handleImageHasLoaded={handleImageHasLoaded}
+      handleIsImageLoaded={handleIsImageLoaded}
       imageUrls={imageUrls}
       handleSelectImage={handleSelectImage}
     />

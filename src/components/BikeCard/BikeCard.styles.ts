@@ -11,6 +11,10 @@ import {
 } from '@mui/material'
 import { FavoriteBorderOutlined } from '@mui/icons-material'
 
+interface BikeImageProps extends BoxProps {
+  isLoaded: boolean
+}
+
 export const Container = styled(Card)<CardProps>(({ theme }) => ({
   borderColor: theme.palette.grey[500],
   padding: 18,
@@ -44,6 +48,12 @@ export const FavoriteIcon = styled(FavoriteBorderOutlined)(({ theme }) => ({
 export const ImageContainer = styled(Box)<BoxProps>(() => ({
   padding: '0 73px',
   width: '100%',
+}))
+
+export const BikeImage = styled('img', {
+  shouldForwardProp: (prop) => prop !== 'isLoaded',
+})<BikeImageProps>(({ isLoaded }) => ({
+  display: isLoaded ? 'block' : 'none',
 }))
 
 export const Name = styled(Typography)<TypographyProps>(({ theme }) => ({

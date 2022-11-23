@@ -17,15 +17,15 @@ const BikeCardContainer = ({ bike }: BikeCardProps) => {
     navigate(Paths.BIKE_DETAILS, { state: { bike } })
   }
 
-  const handleImageHasLoaded = () => {
-    setIsImageLoaded(true)
+  const handleIsImageLoaded = (isLoading: boolean) => {
+    setIsImageLoaded(isLoading)
   }
 
   return (
     <BikeCard
       id={bike.id}
       isImageLoaded={isImageLoaded}
-      handleImageHasLoaded={handleImageHasLoaded}
+      handleIsImageLoaded={handleIsImageLoaded}
       handleOpenBikeDetails={handleOpenBikeDetails}
       name={bike.name}
       type={bike.type}
