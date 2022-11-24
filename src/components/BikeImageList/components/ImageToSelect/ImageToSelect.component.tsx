@@ -3,20 +3,21 @@ import { Container } from './ImageToSelect.styles'
 interface ImageToSelectComponentProps {
   imageUrl: string
   isSelected: boolean
-  handleSelectImage: (imageUrl: string) => void
+  index: number
+  handleSelectImage: (imageUrl: string, index: number) => void
 }
 
 const ImageToSelect = ({
   imageUrl,
   isSelected,
+  index,
   handleSelectImage,
 }: ImageToSelectComponentProps) => {
   return (
     <Container
       isSelected={isSelected}
       variant='outlined'
-      key={imageUrl}
-      onClick={() => handleSelectImage(imageUrl)}
+      onClick={() => handleSelectImage(imageUrl, index)}
       data-testid='image-to-select'
     >
       <img src={imageUrl} width='100%' />
