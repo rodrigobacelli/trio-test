@@ -5,7 +5,6 @@ import BikeType from 'components/BikeType'
 import BookingAddressMap from 'components/BookingAddressMap'
 import Header from 'components/Header'
 import Bike from 'models/Bike'
-import { getRateByWeek } from 'utils/rates'
 import { getServicesFee } from './BikeDetails.utils'
 import {
   BookingButton,
@@ -27,7 +26,7 @@ interface BikeDetailsProps {
 
 const BikeDetails = ({ bike }: BikeDetailsProps) => {
   const rateByDay = bike?.rate || 0
-  const rateByWeek = getRateByWeek(rateByDay)
+  const rateByWeek = rateByDay * 7
 
   const servicesFee = getServicesFee(rateByDay)
   const total = rateByDay + servicesFee
