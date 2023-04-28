@@ -2,6 +2,8 @@ import Bike from 'models/Bike'
 import { useEffect, useState } from 'react'
 import apiClient from 'services/api'
 import Home from './Home.component'
+import { BOILERPLATE_CANDIDATE_TOKEN } from 'config'
+
 
 const HomeContainer = () => {
   const [bikes, setBikes] = useState<Bike[]>([])
@@ -15,7 +17,9 @@ const HomeContainer = () => {
     getAllBikes()
   }, [])
 
-  return <Home bikes={bikes} />
+
+
+  return <Home appIsNotConfigured={!BOILERPLATE_CANDIDATE_TOKEN} bikes={bikes} />
 }
 
 export default HomeContainer
