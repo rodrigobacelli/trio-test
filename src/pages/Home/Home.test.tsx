@@ -4,7 +4,6 @@ import { mockedBikesArray } from 'mocks/Bike'
 import Home from './Home.component'
 
 describe('Home page', () => {
-
   it('should has a header', () => {
     render(
       <BrowserRouter>
