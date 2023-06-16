@@ -8,3 +8,5 @@ export const Content = styled(Box)(({ theme }) => ({
     padding: '8vw',
   },
 }))
+
+

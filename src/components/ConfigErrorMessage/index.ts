@@ -1,3 +1,3 @@
-import ConfigErrorMessage from './ConfigErrorMessage.component'
+import ConfigErrorMessage from './ConfigErrorMessage.component';
 
-export default ConfigErrorMessage
+export default ConfigErrorMessage;

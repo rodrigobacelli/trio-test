@@ -7,4 +7,4 @@ export const ErrorMessage = styled(Box)(({ theme }) => ({
   maxWidth: 500,
   marginLeft: 'auto',
   marginRight: 'auto',
-}))
+}));
