@@ -8,8 +8,11 @@ import {
   Typography,
   BoxProps,
   TypographyProps,
+  Button,
+  ButtonProps,
 } from '@mui/material'
 import { FavoriteBorderOutlined } from '@mui/icons-material'
+import InfoOutlined from '@mui/icons-material/InfoOutlined'
 
 interface BikeImageProps extends BoxProps {
   isLoaded: boolean
@@ -59,3 +62,22 @@ export const PriceText = styled(Typography)<TypographyProps & { component: strin
     fontWeight: 800,
   }),
 )
+
+export const BookingButton = styled(Button)<ButtonProps>(({ theme }) => ({
+  borderRadius: 20,
+  padding: '18px 0',
+  marginTop: 30,
+  textTransform: 'none',
+  color: theme.palette.common.white,
+  fontWeight: 800,
+}))
+
+export const InfoIcon = styled(InfoOutlined)(({ theme }) => ({
+  color: theme.palette.grey[500],
+}))
+
+export const PriceRow = styled(Box)<BoxProps>(() => ({
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+}))

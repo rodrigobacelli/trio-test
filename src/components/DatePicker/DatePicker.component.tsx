@@ -1,13 +1,16 @@
 import * as React from 'react'
 import { CalendarContainer, WeekDay } from './DatePicker.styles'
-import { DateRange, DayPicker } from 'react-day-picker'
+import { DayPicker, DayPickerRangeProps } from 'react-day-picker'
 import 'react-day-picker/dist/style.css'
 import { format } from 'date-fns'
 import Header from './components/Header'
 
-const DatePicker = () => {
-  const [range, setRange] = React.useState<DateRange | undefined>()
+export interface DatePickerProps {
+  selected?: DayPickerRangeProps['selected']
+  onSelect?: DayPickerRangeProps['onSelect']
+}
 
+const DatePicker = ({ selected, onSelect }: DatePickerProps) => {
   return (
     <CalendarContainer>
       <DayPicker
@@ -20,8 +23,8 @@ const DatePicker = () => {
             <WeekDay>{format(weekday, 'EEEEEE', { locale: options?.locale })}</WeekDay>
           ),
         }}
-        selected={range}
-        onSelect={setRange}
+        selected={selected}
+        onSelect={onSelect}
         showOutsideDays
         fromDate={new Date()}
       />
