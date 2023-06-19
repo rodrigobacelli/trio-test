@@ -19,6 +19,7 @@ import {
   OverviewContainer,
   PriceRow,
 } from './BikeDetails.styles'
+import BikeRent from '../../components/BikeRent'
 
 interface BikeDetailsProps {
   bike?: Bike
@@ -109,7 +110,7 @@ const BikeDetails = ({ bike }: BikeDetailsProps) => {
             <BookingAddressMap />
           </Box>
         </DetailsContainer>
-
+        <BikeRent />
         <OverviewContainer variant='outlined' data-testid='bike-overview-container'>
           <Typography variant='h2' fontSize={16} marginBottom={1.25}>
             Booking Overview
