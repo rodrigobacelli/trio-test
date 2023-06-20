@@ -15,7 +15,12 @@ export type BikeRentProps = {
   onBook?: (value: DateRange) => void
 }
 
-const BikeRentContainer = ({ bike, isBooking, isBooked, onBook }: BikeRentProps) => {
+const BikeRentContainer = ({
+  bike,
+  isBooking = false,
+  isBooked = false,
+  onBook,
+}: BikeRentProps) => {
   const theme = useTheme()
   const isMobileScreen = useMediaQuery(theme.breakpoints.down('md'))
 
@@ -71,6 +76,7 @@ const BikeRentContainer = ({ bike, isBooking, isBooked, onBook }: BikeRentProps)
       prices={bikePrices}
       isLoadingPrices={isGettingPrice}
       isBooking={isBooking}
+      isBooked={isBooked}
       onBook={handleBooking}
       bike={bike}
     />

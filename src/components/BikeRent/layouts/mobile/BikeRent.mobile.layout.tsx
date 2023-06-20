@@ -1,12 +1,4 @@
-import {
-  Box,
-  Button,
-  Drawer,
-  IconButton,
-  SwipeableDrawer,
-  Typography,
-  useTheme,
-} from '@mui/material'
+import { Box, Modal, Typography } from '@mui/material'
 import { DateRange, DayPickerRangeProps } from 'react-day-picker'
 
 import {
@@ -19,6 +11,7 @@ import {
   BikePrice,
   CalendarIcon,
   DatePickerDrawer,
+  SuccessContainer,
 } from './BikeRent.mobile.styles'
 import { useCallback, useState } from 'react'
 import { ChevronLeft } from '@mui/icons-material'
@@ -26,8 +19,10 @@ import Bike from '../../../../models/Bike'
 import BikeType from '../../../BikeType'
 import BookingOverview from '../../../BookingOverview'
 import { BookingButton, DatePickerButton } from '../desktop/BikeRent.desktop.styles'
-import { format, isSameDay } from 'date-fns'
-import DatePicker, { DatePickerProps } from '../../../DatePicker'
+import { format } from 'date-fns'
+import DatePicker from '../../../DatePicker'
+import { useNavigate } from 'react-router-dom'
+import { Paths } from '../../../../routes/paths'
 
 export type BikePrices = {
   rentAmount: number
@@ -41,8 +36,9 @@ interface BikeRentComponentProps {
   selectedDays?: DayPickerRangeProps['selected']
   onSelectDay?: (value: DateRange) => void
   onBook?: () => void
-  isLoadingPrices?: boolean
-  isBooking?: boolean
+  isLoadingPrices: boolean
+  isBooking: boolean
+  isBooked: boolean
 }
 
 const iOS = typeof navigator !== 'undefined' && /iPad|iPhone|iPod/.test(navigator.userAgent)
@@ -79,13 +75,14 @@ const DatePickerInput = ({
 const MobileBikeRent = ({
   selectedDays,
   prices,
-  isLoadingPrices,
-  isBooking,
   onBook,
   bike,
   onSelectDay,
+  isLoadingPrices,
+  isBooking,
+  isBooked = false,
 }: BikeRentComponentProps) => {
-  const theme = useTheme()
+  const navigate = useNavigate()
   const [isBookingOpen, setIsBookingOpen] = useState(false)
   const [isPickingDate, setIsPickingDate] = useState(false)
   const [dateRange, setDateRange] = useState<DateRange | undefined>()
@@ -96,6 +93,10 @@ const MobileBikeRent = ({
     }
     setIsPickingDate(false)
   }, [dateRange])
+
+  const handleGoHome = () => {
+    navigate(Paths.HOME)
+  }
 
   return (
     <Container data-testid='bike-overview-container'>
@@ -180,6 +181,40 @@ const MobileBikeRent = ({
           Select
         </RentButton>
       </DatePickerDrawer>
+      <Modal
+        open={isBooked}
+        aria-labelledby='booking-modal-title'
+        aria-describedby='booking-modal-description'
+      >
+        <SuccessContainer>
+          <Typography id='booking-modal-title' variant='h1' fontSize={24} marginBottom={4}>
+            Thank you!
+          </Typography>
+          <Typography marginBottom={3} id='booking-modal-description'>
+            Your bike is booked.
+          </Typography>
+
+          {!!bike?.imageUrls && (
+            <img src={bike.imageUrls[0]} height={105} alt='Bike Image' data-testid='bike-image' />
+          )}
+
+          <Typography fontWeight={700} fontSize={18} lineHeight={1.3} marginTop={2}>
+            {bike?.name}
+          </Typography>
+
+          <BikeType type={bike?.type} />
+
+          <BookingButton
+            fullWidth
+            disableElevation
+            variant='contained'
+            data-testid='bike-booking-button'
+            onClick={handleGoHome}
+          >
+            Go to Home Page
+          </BookingButton>
+        </SuccessContainer>
+      </Modal>
     </Container>
   )
 }

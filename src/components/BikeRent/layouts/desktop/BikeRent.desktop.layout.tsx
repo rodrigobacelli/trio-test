@@ -1,9 +1,8 @@
-import { Box, CircularProgress, Divider, Typography } from '@mui/material'
+import { Typography } from '@mui/material'
 import { DayPickerRangeProps } from 'react-day-picker'
 
 import DatePicker from '../../../DatePicker'
-import { BookingButton, Container, InfoIcon, PriceRow } from './BikeRent.desktop.styles'
-import { formatMoney } from '../../BikeRent.utils'
+import { BookingButton, Container } from './BikeRent.desktop.styles'
 import Bike from '../../../../models/Bike'
 import BookingOverview from '../../../BookingOverview'
 
@@ -19,8 +18,9 @@ interface BikeRentComponentProps {
   selectedDays?: DayPickerRangeProps['selected']
   onSelectDay?: DayPickerRangeProps['onSelect']
   onBook?: () => void
-  isLoadingPrices?: boolean
-  isBooking?: boolean
+  isLoadingPrices: boolean
+  isBooking: boolean
+  isBooked: boolean
 }
 
 const DesktopBikeRent = ({

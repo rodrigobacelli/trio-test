@@ -15,10 +15,13 @@ import {
   Drawer,
   SwipeableDrawer,
   SwipeableDrawerProps,
+  PaperProps,
+  Paper,
 } from '@mui/material'
 import { FavoriteBorderOutlined } from '@mui/icons-material'
 import InfoOutlined from '@mui/icons-material/InfoOutlined'
 import CalendarMonth from '@mui/icons-material/CalendarMonth'
+import theme from '../../../../styles/theme'
 
 interface BikeImageProps extends BoxProps {
   isLoaded: boolean
@@ -112,4 +115,18 @@ export const DatePickerDrawer = styled(SwipeableDrawer)<SwipeableDrawerProps>(({
     padding: 24,
     borderRadius: '30px 30px 0px 0px',
   },
+}))
+
+export const SuccessContainer = styled(Card)<CardProps>(() => ({
+  display: 'flex',
+  flexDirection: 'column',
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: '75%',
+  bgColor: theme.palette.common.white,
+  padding: '24px 18px',
+  alignItems: 'center',
+  justifyContent: 'center',
 }))
