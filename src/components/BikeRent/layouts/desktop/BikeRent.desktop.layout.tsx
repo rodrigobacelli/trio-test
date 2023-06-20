@@ -1,9 +1,9 @@
 import { Box, CircularProgress, Divider, Typography } from '@mui/material'
 import { DayPickerRangeProps } from 'react-day-picker'
 
-import DatePicker from '../DatePicker'
-import { BookingButton, Container, InfoIcon, PriceRow } from './BikeRent.styles'
-import { formatMoney } from './BikeRent.utils'
+import DatePicker from '../../../DatePicker'
+import { BookingButton, Container, InfoIcon, PriceRow } from './BikeRent.desktop.styles'
+import { formatMoney } from '../../BikeRent.utils'
 
 export type BikePrices = {
   rentAmount: number
@@ -20,7 +20,7 @@ interface BikeRentComponentProps {
   isBooking?: boolean
 }
 
-const BikeRent = ({
+const DesktopBikeRent = ({
   selectedDays,
   onSelectDay,
   prices,
@@ -99,4 +99,4 @@ const BikeRent = ({
   )
 }
 
-export default BikeRent
+export default DesktopBikeRent

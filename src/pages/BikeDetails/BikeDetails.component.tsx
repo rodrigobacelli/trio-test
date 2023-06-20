@@ -15,9 +15,9 @@ import {
   LikeButton,
   PriceRow,
 } from './BikeDetails.styles'
-import BikeRent from '../../components/BikeRent'
+import BikeRent, { BikeRentProps } from '../../components/BikeRent'
 
-interface BikeDetailsProps {
+type BikeDetailsProps = Pick<BikeRentProps, 'isBooked' | 'isBooking' | 'onBook'> & {
   bike?: Bike
 }
 
