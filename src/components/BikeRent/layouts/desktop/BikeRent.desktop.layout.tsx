@@ -5,6 +5,7 @@ import DatePicker from '../../../DatePicker'
 import { BookingButton, Container } from './BikeRent.desktop.styles'
 import Bike from '../../../../models/Bike'
 import BookingOverview from '../../../BookingOverview'
+import RentSuccess from '../../components/RentSuccess'
 
 export type BikePrices = {
   rentAmount: number
@@ -30,27 +31,34 @@ const DesktopBikeRent = ({
   isLoadingPrices,
   isBooking,
   onBook,
+  isBooked,
+  bike,
 }: BikeRentComponentProps) => {
   return (
     <Container variant='outlined' data-testid='bike-overview-container'>
-      <Typography variant='h2' fontSize={24} marginBottom={1}>
-        Select date and time
-      </Typography>
+      {isBooked && <RentSuccess bike={bike} />}
+      {!isBooked && (
+        <>
+          <Typography variant='h2' fontSize={24} marginBottom={1}>
+            Select date and time
+          </Typography>
 
-      <DatePicker selected={selectedDays} onSelect={onSelectDay} />
+          <DatePicker selected={selectedDays} onSelect={onSelectDay} />
 
-      <BookingOverview prices={prices} isLoading={isLoadingPrices} />
+          <BookingOverview prices={prices} isLoading={isLoadingPrices} />
 
-      <BookingButton
-        fullWidth
-        disableElevation
-        variant='contained'
-        data-testid='bike-booking-button'
-        onClick={onBook}
-        disabled={!selectedDays || !prices || isLoadingPrices || isBooking}
-      >
-        Add to booking
-      </BookingButton>
+          <BookingButton
+            fullWidth
+            disableElevation
+            variant='contained'
+            data-testid='bike-booking-button'
+            onClick={onBook}
+            disabled={!selectedDays || !prices || isLoadingPrices || isBooking}
+          >
+            Add to booking
+          </BookingButton>
+        </>
+      )}
     </Container>
   )
 }

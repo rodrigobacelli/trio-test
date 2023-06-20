@@ -23,6 +23,7 @@ import { format } from 'date-fns'
 import DatePicker from '../../../DatePicker'
 import { useNavigate } from 'react-router-dom'
 import { Paths } from '../../../../routes/paths'
+import RentSuccess from '../../components/RentSuccess'
 
 export type BikePrices = {
   rentAmount: number
@@ -182,37 +183,18 @@ const MobileBikeRent = ({
         </RentButton>
       </DatePickerDrawer>
       <Modal
-        open={isBooked}
+        open={!isBooked}
         aria-labelledby='booking-modal-title'
         aria-describedby='booking-modal-description'
       >
         <SuccessContainer>
-          <Typography id='booking-modal-title' variant='h1' fontSize={24} marginBottom={4}>
-            Thank you!
-          </Typography>
-          <Typography marginBottom={3} id='booking-modal-description'>
-            Your bike is booked.
-          </Typography>
-
-          {!!bike?.imageUrls && (
-            <img src={bike.imageUrls[0]} height={105} alt='Bike Image' data-testid='bike-image' />
-          )}
-
-          <Typography fontWeight={700} fontSize={18} lineHeight={1.3} marginTop={2}>
-            {bike?.name}
-          </Typography>
-
-          <BikeType type={bike?.type} />
-
-          <BookingButton
-            fullWidth
-            disableElevation
-            variant='contained'
-            data-testid='bike-booking-button'
-            onClick={handleGoHome}
-          >
-            Go to Home Page
-          </BookingButton>
+          <RentSuccess
+            bike={bike}
+            showGoHomeButton
+            onGoHomeButtonClick={handleGoHome}
+            titleId='booking-modal-title'
+            contentId='booking-modal-description'
+          />
         </SuccessContainer>
       </Modal>
     </Container>
