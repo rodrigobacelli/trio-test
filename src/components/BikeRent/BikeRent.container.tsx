@@ -72,6 +72,7 @@ const BikeRentContainer = ({ bike, isBooking, isBooked, onBook }: BikeRentProps)
       isLoadingPrices={isGettingPrice}
       isBooking={isBooking}
       onBook={handleBooking}
+      bike={bike}
     />
   )
 }

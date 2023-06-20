@@ -10,9 +10,15 @@ import {
   TypographyProps,
   Button,
   ButtonProps,
+  IconButton,
+  IconButtonProps,
+  Drawer,
+  SwipeableDrawer,
+  SwipeableDrawerProps,
 } from '@mui/material'
 import { FavoriteBorderOutlined } from '@mui/icons-material'
 import InfoOutlined from '@mui/icons-material/InfoOutlined'
+import CalendarMonth from '@mui/icons-material/CalendarMonth'
 
 interface BikeImageProps extends BoxProps {
   isLoaded: boolean
@@ -62,4 +68,48 @@ export const BookingHeader = styled(Box)<BoxProps>(() => ({
   display: 'flex',
   justifyContent: 'flex-start',
   alignItems: 'center',
+}))
+
+export const NavButton = styled(IconButton)<IconButtonProps>(({ theme }) => ({
+  color: theme.palette.common.black,
+  borderWidth: 1,
+  borderStyle: 'solid',
+  borderColor: theme.palette.grey['500'],
+  borderRadius: 20,
+  width: 52,
+  height: 52,
+  transition: 'all 0.2s ease',
+  marginRight: 40,
+}))
+
+export const BikeOverview = styled(Card)<CardProps>(({ theme }) => ({
+  borderColor: theme.palette.grey[500],
+  display: 'flex',
+  flex: 1,
+  alignItems: 'center',
+  justifyContent: 'flex-start',
+  // borderRadius: 20,
+  padding: 16,
+  marginTop: 24,
+}))
+
+export const BikePrice = styled(Box)<BoxProps>(({ theme }) => ({
+  display: 'flex',
+  flex: 1,
+  alignItems: 'center',
+  justifyContent: 'flex-start',
+  marginTop: 8,
+}))
+
+export const CalendarIcon = styled(CalendarMonth)(({ theme }) => ({
+  color: theme.palette.primary.main,
+  fonstSize: 24,
+}))
+
+export const DatePickerDrawer = styled(SwipeableDrawer)<SwipeableDrawerProps>(({ theme }) => ({
+  '& .MuiPaper-root': {
+    backgroundColor: theme.palette.primary.main,
+    padding: 24,
+    borderRadius: '30px 30px 0px 0px',
+  },
 }))
