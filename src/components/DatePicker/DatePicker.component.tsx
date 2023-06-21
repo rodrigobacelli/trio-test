@@ -1,13 +1,13 @@
 import * as React from 'react'
 import { CalendarContainer, WeekDay } from './DatePicker.styles'
-import { DayPicker, DayPickerRangeProps } from 'react-day-picker'
+import { DateRange, DayPicker, DayPickerRangeProps } from 'react-day-picker'
 import 'react-day-picker/dist/style.css'
 import { format } from 'date-fns'
 import Header from './components/Header'
 
 export interface DatePickerProps {
   selected?: DayPickerRangeProps['selected']
-  onSelect?: DayPickerRangeProps['onSelect']
+  onSelect?: (value?: DateRange) => void
 }
 
 const DatePicker = ({ selected, onSelect }: DatePickerProps) => {

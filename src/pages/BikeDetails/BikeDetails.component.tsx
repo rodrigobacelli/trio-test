@@ -1,12 +1,11 @@
 import { Box, Breadcrumbs, Divider, Link, Typography } from '@mui/material'
+
 import BikeImageSelector from 'components/BikeImageSelector'
 import BikeSpecs from 'components/BikeSpecs'
 import BikeType from 'components/BikeType'
 import BookingAddressMap from 'components/BookingAddressMap'
 import BikeRent, { BikeRentProps } from 'components/BikeRent'
 import Header from 'components/Header'
-
-import Bike from 'models/Bike'
 
 import {
   BreadcrumbContainer,
@@ -19,11 +18,16 @@ import {
   PriceRow,
 } from './BikeDetails.styles'
 
-type BikeDetailsProps = Pick<BikeRentProps, 'isBooked' | 'isBooking' | 'onBook'> & {
-  bike?: Bike
-}
-
-const BikeDetails = ({ bike }: BikeDetailsProps) => {
+const BikeDetails = ({
+  bike,
+  isBooked,
+  isBooking,
+  onBook,
+  isLoadingPrices,
+  prices,
+  selectedDays,
+  onSelectDays,
+}: BikeRentProps) => {
   const rateByDay = bike?.rate || 0
   const rateByWeek = rateByDay * 7
 
@@ -106,7 +110,16 @@ const BikeDetails = ({ bike }: BikeDetailsProps) => {
           </Box>
         </DetailsContainer>
 
-        <BikeRent bike={bike} />
+        <BikeRent
+          bike={bike}
+          isBooked={isBooked}
+          isBooking={isBooking}
+          onBook={onBook}
+          prices={prices}
+          isLoadingPrices={isLoadingPrices}
+          selectedDays={selectedDays}
+          onSelectDays={onSelectDays}
+        />
       </Content>
     </div>
   )

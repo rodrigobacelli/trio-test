@@ -7,12 +7,6 @@ import Bike from 'models/Bike'
 
 import { GoHomeButton, SuccessContainer } from './RentSuccess.styles'
 
-export type BikePrices = {
-  rentAmount: number
-  fee: number
-  totalAmount: number
-}
-
 interface BikeRentComponentProps {
   bike?: Bike
   titleId?: string

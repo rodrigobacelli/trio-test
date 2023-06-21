@@ -1,26 +1,20 @@
 import { Typography } from '@mui/material'
-import { DayPickerRangeProps } from 'react-day-picker'
 
-import DatePicker from 'components/DatePicker'
+import DatePicker, { DatePickerProps } from 'components/DatePicker'
 import BookingOverview from 'components/BookingOverview'
 
 import RentSuccess from '../../components/RentSuccess'
 
 import Bike from 'models/Bike'
+import BikePrices from 'models/BikePrices'
 
 import { BookingButton, Container } from './BikeRent.desktop.styles'
-
-export type BikePrices = {
-  rentAmount: number
-  fee: number
-  totalAmount: number
-}
 
 interface BikeRentComponentProps {
   bike?: Bike
   prices?: BikePrices
-  selectedDays?: DayPickerRangeProps['selected']
-  onSelectDay?: DayPickerRangeProps['onSelect']
+  selectedDays?: DatePickerProps['selected']
+  onSelectDay?: DatePickerProps['onSelect']
   onBook?: () => void
   isLoadingPrices: boolean
   isBooking: boolean

@@ -2,18 +2,21 @@ import { useCallback, useState } from 'react'
 
 import { Box, Modal, Typography } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
-import { DateRange, DayPickerRangeProps } from 'react-day-picker'
+import { DateRange } from 'react-day-picker'
 import { format } from 'date-fns'
-
-import { ChevronLeft } from '@mui/icons-material'
 
 import BikeType from 'components/BikeType'
 import BookingOverview from 'components/BookingOverview'
-import DatePicker from 'components/DatePicker'
+import DatePicker, { DatePickerProps } from 'components/DatePicker'
 import BikeImage from 'components/BikeImage'
 import { Paths } from 'routes/paths'
 
+import RentSuccess from '../../components/RentSuccess'
+
 import Bike from 'models/Bike'
+import BikePrices from 'models/BikePrices'
+
+import { ChevronLeft } from '@mui/icons-material'
 
 import {
   BookingContainer,
@@ -30,19 +33,11 @@ import {
   BookingButton,
 } from './BikeRent.mobile.styles'
 
-import RentSuccess from '../../components/RentSuccess'
-
-export type BikePrices = {
-  rentAmount: number
-  fee: number
-  totalAmount: number
-}
-
 interface BikeRentComponentProps {
   bike?: Bike
   prices?: BikePrices
-  selectedDays?: DayPickerRangeProps['selected']
-  onSelectDay?: (value: DateRange) => void
+  selectedDays?: DatePickerProps['selected']
+  onSelectDay?: DatePickerProps['onSelect']
   onBook?: () => void
   isLoadingPrices: boolean
   isBooking: boolean
@@ -93,7 +88,7 @@ const MobileBikeRent = ({
   const navigate = useNavigate()
   const [isBookingOpen, setIsBookingOpen] = useState(false)
   const [isPickingDate, setIsPickingDate] = useState(false)
-  const [dateRange, setDateRange] = useState<DateRange | undefined>()
+  const [dateRange, setDateRange] = useState<DateRange | undefined>(selectedDays)
 
   const handleDateSelection = useCallback(() => {
     if (onSelectDay && dateRange?.from) {
