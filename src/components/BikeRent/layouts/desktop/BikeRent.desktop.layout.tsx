@@ -1,11 +1,14 @@
 import { Typography } from '@mui/material'
 import { DayPickerRangeProps } from 'react-day-picker'
 
-import DatePicker from '../../../DatePicker'
-import { BookingButton, Container } from './BikeRent.desktop.styles'
-import Bike from '../../../../models/Bike'
-import BookingOverview from '../../../BookingOverview'
+import DatePicker from 'components/DatePicker'
+import BookingOverview from 'components/BookingOverview'
+
 import RentSuccess from '../../components/RentSuccess'
+
+import Bike from 'models/Bike'
+
+import { BookingButton, Container } from './BikeRent.desktop.styles'
 
 export type BikePrices = {
   rentAmount: number

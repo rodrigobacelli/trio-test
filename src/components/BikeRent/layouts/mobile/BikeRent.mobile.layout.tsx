@@ -1,5 +1,19 @@
+import { useCallback, useState } from 'react'
+
 import { Box, Modal, Typography } from '@mui/material'
+import { useNavigate } from 'react-router-dom'
 import { DateRange, DayPickerRangeProps } from 'react-day-picker'
+import { format } from 'date-fns'
+
+import { ChevronLeft } from '@mui/icons-material'
+
+import BikeType from 'components/BikeType'
+import BookingOverview from 'components/BookingOverview'
+import DatePicker from 'components/DatePicker'
+import BikeImage from 'components/BikeImage'
+import { Paths } from 'routes/paths'
+
+import Bike from 'models/Bike'
 
 import {
   BookingContainer,
@@ -12,19 +26,11 @@ import {
   CalendarIcon,
   DatePickerDrawer,
   SuccessContainer,
+  DatePickerButton,
+  BookingButton,
 } from './BikeRent.mobile.styles'
-import { useCallback, useState } from 'react'
-import { ChevronLeft } from '@mui/icons-material'
-import Bike from '../../../../models/Bike'
-import BikeType from '../../../BikeType'
-import BookingOverview from '../../../BookingOverview'
-import { BookingButton, DatePickerButton } from '../desktop/BikeRent.desktop.styles'
-import { format } from 'date-fns'
-import DatePicker from '../../../DatePicker'
-import { useNavigate } from 'react-router-dom'
-import { Paths } from '../../../../routes/paths'
+
 import RentSuccess from '../../components/RentSuccess'
-import BikeImage from 'components/BikeImage'
 
 export type BikePrices = {
   rentAmount: number

@@ -1,31 +1,17 @@
 import {
   Box,
   Card,
-  CardHeader,
-  CardHeaderProps,
   CardProps,
   styled,
-  Typography,
   BoxProps,
-  TypographyProps,
   Button,
   ButtonProps,
   IconButton,
   IconButtonProps,
-  Drawer,
   SwipeableDrawer,
   SwipeableDrawerProps,
-  PaperProps,
-  Paper,
 } from '@mui/material'
-import { FavoriteBorderOutlined } from '@mui/icons-material'
-import InfoOutlined from '@mui/icons-material/InfoOutlined'
-import CalendarMonth from '@mui/icons-material/CalendarMonth'
-import theme from '../../../../styles/theme'
-
-interface BikeImageProps extends BoxProps {
-  isLoaded: boolean
-}
+import { InfoOutlined, CalendarMonth } from '@mui/icons-material'
 
 export const Container = styled(Box)<BoxProps>(({ theme }) => ({
   backgroundColor: theme.palette.primary.main,
@@ -96,7 +82,7 @@ export const BikeOverview = styled(Card)<CardProps>(({ theme }) => ({
   marginTop: 24,
 }))
 
-export const BikePrice = styled(Box)<BoxProps>(({ theme }) => ({
+export const BikePrice = styled(Box)<BoxProps>(() => ({
   display: 'flex',
   flex: 1,
   alignItems: 'center',
@@ -117,7 +103,7 @@ export const DatePickerDrawer = styled(SwipeableDrawer)<SwipeableDrawerProps>(({
   },
 }))
 
-export const SuccessContainer = styled(Card)<CardProps>(() => ({
+export const SuccessContainer = styled(Card)<CardProps>(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   position: 'absolute',
@@ -129,4 +115,27 @@ export const SuccessContainer = styled(Card)<CardProps>(() => ({
   padding: '24px 18px',
   alignItems: 'center',
   justifyContent: 'center',
+}))
+
+export const DatePickerButton = styled(Button)<ButtonProps>(({ theme }) => ({
+  borderColor: theme.palette.grey['500'],
+  borderRadius: 30,
+  padding: '18px 24px',
+  marginTop: 8,
+  textTransform: 'none',
+  color: theme.palette.common.black,
+  width: '100%',
+  justifyContent: 'flex-start',
+  alignItems: 'center',
+  fontSize: 16,
+  lineHeight: 1.5,
+}))
+
+export const BookingButton = styled(Button)<ButtonProps>(({ theme }) => ({
+  borderRadius: 20,
+  padding: '18px 0',
+  marginTop: 30,
+  textTransform: 'none',
+  color: theme.palette.common.white,
+  fontWeight: 800,
 }))

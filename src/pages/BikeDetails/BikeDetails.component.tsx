@@ -3,8 +3,11 @@ import BikeImageSelector from 'components/BikeImageSelector'
 import BikeSpecs from 'components/BikeSpecs'
 import BikeType from 'components/BikeType'
 import BookingAddressMap from 'components/BookingAddressMap'
+import BikeRent, { BikeRentProps } from 'components/BikeRent'
 import Header from 'components/Header'
+
 import Bike from 'models/Bike'
+
 import {
   BreadcrumbContainer,
   BreadcrumbHome,
@@ -15,7 +18,6 @@ import {
   LikeButton,
   PriceRow,
 } from './BikeDetails.styles'
-import BikeRent, { BikeRentProps } from '../../components/BikeRent'
 
 type BikeDetailsProps = Pick<BikeRentProps, 'isBooked' | 'isBooking' | 'onBook'> & {
   bike?: Bike

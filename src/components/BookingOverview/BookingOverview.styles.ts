@@ -1,4 +1,5 @@
 import { Box, styled, BoxProps } from '@mui/material'
+
 import InfoOutlined from '@mui/icons-material/InfoOutlined'
 
 export const Container = styled(Box)<BoxProps>(() => ({

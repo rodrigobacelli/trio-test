@@ -1,4 +1,5 @@
 import { Box, CircularProgress, ContainerProps, Divider, Typography } from '@mui/material'
+
 import { Container, InfoIcon, PriceRow } from './BookingOverview.styles'
 import { formatMoney } from './BookingOverview.utils'
 

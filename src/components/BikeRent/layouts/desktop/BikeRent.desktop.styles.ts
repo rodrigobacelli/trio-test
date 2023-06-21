@@ -72,20 +72,6 @@ export const BookingButton = styled(Button)<ButtonProps>(({ theme }) => ({
   fontWeight: 800,
 }))
 
-export const DatePickerButton = styled(Button)<ButtonProps>(({ theme }) => ({
-  borderColor: theme.palette.grey['500'],
-  borderRadius: 30,
-  padding: '18px 24px',
-  marginTop: 8,
-  textTransform: 'none',
-  color: theme.palette.common.black,
-  width: '100%',
-  justifyContent: 'flex-start',
-  alignItems: 'center',
-  fontSize: 16,
-  lineHeight: 1.5,
-}))
-
 export const InfoIcon = styled(InfoOutlined)(({ theme }) => ({
   color: theme.palette.grey[500],
 }))

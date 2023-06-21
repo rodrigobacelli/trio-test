@@ -1,12 +1,21 @@
-import Bike from 'models/Bike'
-import { BikePrices } from './BikeRent.component'
+import { useCallback, useEffect, useMemo, useState } from 'react'
+
+import { useMediaQuery, useTheme } from '@mui/material'
 import { DateRange } from 'react-day-picker'
-import apiClient from '../../services/api'
 import { format } from 'date-fns'
 import type { AxiosResponse } from 'axios'
-import { useMediaQuery, useTheme } from '@mui/material'
-import { useCallback, useEffect, useMemo, useState } from 'react'
+
+import apiClient from 'services/api'
+
 import { DesktopBikeRent, MobileBikeRent } from './layouts'
+
+import Bike from 'models/Bike'
+
+export type BikePrices = {
+  rentAmount: number
+  fee: number
+  totalAmount: number
+}
 
 export type BikeRentProps = {
   bike?: Bike
