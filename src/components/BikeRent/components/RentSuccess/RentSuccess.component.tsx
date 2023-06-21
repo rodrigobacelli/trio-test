@@ -1,6 +1,8 @@
 import { Typography } from '@mui/material'
 
+import BikeImage from 'components/BikeImage'
 import BikeType from 'components/BikeType'
+
 import Bike from 'models/Bike'
 
 import { GoHomeButton, SuccessContainer } from './RentSuccess.styles'
@@ -35,9 +37,7 @@ const RentSuccess = ({
         Your bike is booked.
       </Typography>
 
-      {!!bike?.imageUrls && (
-        <img src={bike.imageUrls[0]} height={105} alt='Bike Image' data-testid='bike-image' />
-      )}
+      {!!bike?.imageUrls && <BikeImage src={bike.imageUrls[0]} height={105} />}
 
       <Typography fontWeight={700} fontSize={18} lineHeight={1.3} marginTop={2}>
         {bike?.name}

@@ -24,6 +24,7 @@ import DatePicker from '../../../DatePicker'
 import { useNavigate } from 'react-router-dom'
 import { Paths } from '../../../../routes/paths'
 import RentSuccess from '../../components/RentSuccess'
+import BikeImage from 'components/BikeImage'
 
 export type BikePrices = {
   rentAmount: number
@@ -121,9 +122,7 @@ const MobileBikeRent = ({
           </BookingHeader>
 
           <BikeOverview variant='outlined'>
-            {!!bike?.imageUrls && (
-              <img src={bike.imageUrls[0]} width={100} alt='Bike Image' data-testid='bike-image' />
-            )}
+            {!!bike?.imageUrls && <BikeImage src={bike.imageUrls[0]} width={100} />}
             <Box marginLeft={2}>
               <Typography fontWeight={700} fontSize={18} lineHeight={1.3}>
                 {bike?.name}
@@ -183,7 +182,7 @@ const MobileBikeRent = ({
         </RentButton>
       </DatePickerDrawer>
       <Modal
-        open={!isBooked}
+        open={isBooked}
         aria-labelledby='booking-modal-title'
         aria-describedby='booking-modal-description'
       >
