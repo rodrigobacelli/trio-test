@@ -7,8 +7,8 @@ export const getServicesFee = (amount: number): number =>
   Math.floor(amount * SERVICE_FEE_PERCENTAGE)
 
 interface GetRequestBody {
-  bikeId?: number | string
-  userId?: string
+  bikeId?: number
+  userId?: number
   range?: DateRange
 }
 

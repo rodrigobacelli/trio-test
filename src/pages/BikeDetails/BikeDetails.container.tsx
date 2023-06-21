@@ -37,7 +37,7 @@ const BikeDetailsContainer = () => {
           '/bikes/rent',
           getRequestBody({
             bikeId: currentBikeData?.id,
-            userId: USER_ID,
+            userId: Number(USER_ID),
             range: dateRange,
           }),
         )
@@ -68,7 +68,7 @@ const BikeDetailsContainer = () => {
             '/bikes/amount',
             getRequestBody({
               bikeId: currentBikeData?.id,
-              userId: USER_ID,
+              userId: Number(USER_ID),
               range: range,
             }),
           )
