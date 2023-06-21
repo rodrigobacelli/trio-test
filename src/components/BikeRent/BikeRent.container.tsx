@@ -17,6 +17,7 @@ export type BikeRentProps = {
   onSelectDays?: DatePickerProps['onSelect']
   isLoadingPrices?: boolean
   prices?: BikePrices
+  errorMessage?: string
 }
 
 const BikeRentContainer = ({
@@ -25,6 +26,7 @@ const BikeRentContainer = ({
   selectedDays,
   onBook,
   onSelectDays,
+  errorMessage,
   isBooking = false,
   isBooked = false,
   isLoadingPrices = false,
@@ -47,6 +49,7 @@ const BikeRentContainer = ({
       isBooked={isBooked}
       onBook={onBook}
       bike={bike}
+      errorMessage={errorMessage}
     />
   )
 }

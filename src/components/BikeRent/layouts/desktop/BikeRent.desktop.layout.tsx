@@ -15,6 +15,7 @@ interface BikeRentComponentProps {
   prices?: BikePrices
   selectedDays?: DatePickerProps['selected']
   onSelectDay?: DatePickerProps['onSelect']
+  errorMessage?: string
   onBook?: () => void
   isLoadingPrices: boolean
   isBooking: boolean
@@ -30,6 +31,7 @@ const DesktopBikeRent = ({
   onBook,
   isBooked,
   bike,
+  errorMessage,
 }: BikeRentComponentProps) => {
   return (
     <Container variant='outlined' data-testid='bike-overview-container'>
@@ -44,6 +46,11 @@ const DesktopBikeRent = ({
 
           <BookingOverview prices={prices} isLoading={isLoadingPrices} />
 
+          {errorMessage && (
+            <Typography color='error.main' width='100%' paddingTop={2}>
+              {errorMessage}
+            </Typography>
+          )}
           <BookingButton
             fullWidth
             disableElevation

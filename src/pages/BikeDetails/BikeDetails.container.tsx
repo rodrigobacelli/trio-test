@@ -4,7 +4,7 @@ import BikePrices from 'models/BikePrices'
 import { useCallback, useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import { DateRange } from 'react-day-picker'
-import { AxiosResponse } from 'axios'
+import { AxiosError, AxiosResponse } from 'axios'
 
 import apiClient from 'services/api'
 import { USER_ID } from 'config'
@@ -21,6 +21,7 @@ const BikeDetailsContainer = () => {
 
   const [currentBikeData, setCurrentBikeData] = useState<Bike>()
 
+  const [requestError, setRequestError] = useState<string | undefined>()
   const [isBooking, setIsBooking] = useState(false)
   const [isBooked, setIsBooked] = useState(false)
   const [dateRange, setDateRange] = useState<DateRange | undefined>()
@@ -32,6 +33,7 @@ const BikeDetailsContainer = () => {
       if (currentBikeData && dateRange?.from) {
         setIsBooking(true)
         setIsBooked(false)
+        setRequestError(undefined)
 
         await apiClient.post(
           '/bikes/rent',
@@ -44,7 +46,12 @@ const BikeDetailsContainer = () => {
 
         setIsBooked(true)
       }
-    } catch {
+    } catch (error: unknown) {
+      if (error instanceof AxiosError) {
+        setRequestError(error?.response?.data?.message)
+      } else {
+        setRequestError('Unexpected error')
+      }
       setIsBooked(false)
     } finally {
       setIsBooking(false)
@@ -63,6 +70,7 @@ const BikeDetailsContainer = () => {
       try {
         if (range?.from) {
           setIsGettingPrices(true)
+          setRequestError(undefined)
 
           const response: AxiosResponse<BikePrices> = await apiClient.post(
             '/bikes/amount',
@@ -77,7 +85,12 @@ const BikeDetailsContainer = () => {
         } else {
           setBikePrices(undefined)
         }
-      } catch {
+      } catch (error: unknown) {
+        if (error instanceof AxiosError) {
+          setRequestError(error?.response?.data?.message)
+        } else {
+          setRequestError('Unexpected error')
+        }
         setBikePrices(undefined)
       } finally {
         setIsGettingPrices(false)
@@ -97,6 +110,7 @@ const BikeDetailsContainer = () => {
       isLoadingPrices={isGettingPrices}
       selectedDays={dateRange}
       onSelectDays={setDateRange}
+      errorMessage={requestError}
     />
   )
 }

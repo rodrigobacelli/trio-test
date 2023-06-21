@@ -27,6 +27,7 @@ const BikeDetails = ({
   prices,
   selectedDays,
   onSelectDays,
+  errorMessage,
 }: BikeRentProps) => {
   const rateByDay = bike?.rate || 0
   const rateByWeek = rateByDay * 7
@@ -119,6 +120,7 @@ const BikeDetails = ({
           isLoadingPrices={isLoadingPrices}
           selectedDays={selectedDays}
           onSelectDays={onSelectDays}
+          errorMessage={errorMessage}
         />
       </Content>
     </div>
