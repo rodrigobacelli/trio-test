@@ -44,7 +44,7 @@ export const Content = styled(Box)<BoxProps>(({ theme }) => ({
 
   [theme.breakpoints.down('lg')]: {
     gridTemplateColumns: '1fr',
-    padding: '0 20px 44px',
+    padding: '0 20px 104px',
   },
 }))
 
